@@ -1,4 +1,23 @@
-.items {
+.app__navbar {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  margin-bottom: 20px;
+  box-shadow: 0 3px 2px lightgray;
+}
+
+.app__navbar h1 {
+  color: #3f51b5;
+}
+
+.app__navbarShoppingIcon {
+  font-size: 30px !important;
+  cursor: pointer;
+}
+
+.app__items {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;

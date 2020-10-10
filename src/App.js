@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
 import Item from './components/Item';
+import Badge from '@material-ui/core/Badge';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 function App() {
   const Items = [
@@ -32,7 +34,13 @@ function App() {
 
   return (
     <div className="app">
-      <div className="items">
+      <nav className="app__navbar">
+        <h1>ShoppingCart Notification</h1>
+        <Badge badgeContent={4} color="primary">
+          <ShoppingCartIcon className="app__navbarShoppingIcon" />
+        </Badge>
+      </nav>
+      <div className="app__items">
         {Items.map((item) => (
           <Item item={item} key={item.id} />
         ))}
