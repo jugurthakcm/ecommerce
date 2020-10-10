@@ -15,17 +15,18 @@ const useStyles = makeStyles({
   },
   media: {
     height: 200,
+    objectFit: 'contain',
   },
   input: {
     width: 50,
   },
   price: {
-    fontWeight: 'bold',
+    fontWeight: '500',
     fontSize: '1.3rem',
   },
 });
 
-function Item() {
+function Item({ item }) {
   const classes = useStyles();
 
   return (
@@ -33,16 +34,15 @@ function Item() {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="https://i8.amplience.net/i/jpl/jd_341585_a?qlt=92&w=600&h=425&v=1"
+          image={item.img}
           title="Air max shoe"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Nike Air Max
+            {item.name}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Dignissimos, nemo.
+            {item.description}
           </Typography>
           <Typography
             variant="body1"
@@ -50,7 +50,8 @@ function Item() {
             component="p"
             className={classes.price}
           >
-            <sup style={{ fontSize: '0.8rem' }}>$</sup>100
+            <sup style={{ fontSize: '0.8rem' }}>$</sup>
+            {item.price}
           </Typography>
         </CardContent>
       </CardActionArea>
