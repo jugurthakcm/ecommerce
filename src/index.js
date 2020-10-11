@@ -3,10 +3,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { NotificationProvider } from './data/NotificationProvider';
+import {
+  initialNotification,
+  notificationReducer,
+} from './data/notificationReducer';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <NotificationProvider
+      initialNotification={initialNotification}
+      notificationReducer={notificationReducer}
+    >
+      <App />
+    </NotificationProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
