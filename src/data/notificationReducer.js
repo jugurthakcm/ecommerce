@@ -1,5 +1,5 @@
 export const initialNotification = {
-  notification: 0,
+  notification: 3,
 };
 
 export const notificationActions = {
@@ -7,9 +7,10 @@ export const notificationActions = {
 };
 
 export const notificationReducer = (state, action) => {
+  console.log(action);
   switch (action) {
     case notificationActions.INCREMENT_NOTIFICATION:
-      return state;
+      return { ...state, notification: action.amount };
 
     default:
       return state;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -9,6 +9,8 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import { useNotificationContext } from '../data/NotificationProvider';
+import { notificationActions } from '../data/notificationReducer';
 
 const useStyles = makeStyles({
   root: {
@@ -29,6 +31,14 @@ const useStyles = makeStyles({
 
 function Item({ item }) {
   const classes = useStyles();
+  const [{ notification }, dispatch] = useNotificationContext();
+  const [itemAmount, setItemAmount] = useState(0);
+  const handleClick = () => {
+    dispatch({
+      notification: itemAmount,
+      type: notificationActions.INCREMENT_NOTIFICATION,
+    });
+  };
 
   return (
     <Card className={classes.root}>
@@ -62,9 +72,11 @@ function Item({ item }) {
           id="standard-number"
           type="number"
           className={`${classes.input} card__actionsAmount`}
+          value={itemAmount}
+          onChange={(e) => setItemAmount(e.target.value)}
         />
-        <Button size="small" color="primary">
-          Add to cart{' '}
+        <Button size="small" color="primary" onClick={handleClick}>
+          Add to cart
           <AddShoppingCartIcon fontSize="small" style={{ marginLeft: 5 }} />
         </Button>
       </CardActions>

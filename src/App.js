@@ -3,10 +3,25 @@ import './App.css';
 import Item from './components/Item';
 import Badge from '@material-ui/core/Badge';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import Popover from '@material-ui/core/Popover';
 import { useNotificationContext } from './data/NotificationProvider';
+import Cart from './components/Cart';
 
 function App() {
   const [{ notification }, dispatch] = useNotificationContext();
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
 
   const Items = [
     {
@@ -40,8 +55,30 @@ function App() {
       <nav className="app__navbar">
         <h1>ShoppingCart</h1>
         <Badge badgeContent={notification} color="primary">
-          <ShoppingCartIcon className="app__navbarShoppingIcon" />
+          <ShoppingCartIcon
+            className="app__navbarShoppingIcon"
+            aria-describedby={id}
+            variant="contained"
+            onClick={handleClick}
+          />
         </Badge>
+
+        <Popover
+          id={id}
+          open={open}
+          anchorEl={anchorEl}
+          onClose={handleClose}
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'center',
+          }}
+          transformOrigin={{
+            vertical: 'top',
+            horizontal: 'center',
+          }}
+        >
+          <Cart />
+        </Popover>
       </nav>
       <div className="app__items">
         {Items.map((item) => (
