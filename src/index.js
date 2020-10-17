@@ -4,10 +4,12 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { NotificationProvider } from './data/NotificationProvider';
+import { CartProvider } from './data/CartProvider';
 import {
   initialNotification,
   notificationReducer,
 } from './data/notificationReducer';
+import { initialCart, cartReducer } from './data/cartReducer';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -15,7 +17,9 @@ ReactDOM.render(
       initialNotification={initialNotification}
       notificationReducer={notificationReducer}
     >
-      <App />
+      <CartProvider initialCart={initialCart} cartReducer={cartReducer}>
+        <App />
+      </CartProvider>
     </NotificationProvider>
   </React.StrictMode>,
   document.getElementById('root')

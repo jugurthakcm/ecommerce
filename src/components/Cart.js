@@ -13,7 +13,7 @@ const Cart = () => {
       <ListItem className="cart__item">
         <ListItemText primary="Item 1" />
         <ListItemText primary="100$" edge="end" />
-        <ListItemText primary="3" />
+        <ListItemText primary="x3" />
         <IconButton edge="end" aria-label="delete">
           <DeleteIcon />
         </IconButton>
@@ -21,7 +21,7 @@ const Cart = () => {
       <ListItem className="cart__item">
         <ListItemText primary="Item 2" />
         <ListItemText primary="200$" edge="end" />
-        <ListItemText primary="3" />
+        <ListItemText primary="x3" />
         <IconButton edge="end" aria-label="delete">
           <DeleteIcon />
         </IconButton>
@@ -29,7 +29,7 @@ const Cart = () => {
       <ListItem className="cart__item">
         <ListItemText primary="Item 2" />
         <ListItemText primary="200$" edge="end" />
-        <ListItemText primary="3" />
+        <ListItemText primary="x3" />
         <IconButton edge="end" aria-label="delete">
           <DeleteIcon />
         </IconButton>
