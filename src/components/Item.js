@@ -38,6 +38,7 @@ function Item({ item }) {
       name: item.name,
       amount: itemAmount,
       price: item.price,
+      id: item.id,
     };
     dispatch({
       item: itemSelected,
