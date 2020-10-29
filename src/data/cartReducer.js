@@ -1,14 +1,14 @@
 export const initialCart = { item: {} };
 
-export const itemActions = {
+export const cartActions = {
   ADD_ITEM: 'ADD_ITEM',
 };
 
 export const cartReducer = (state, action) => {
   console.log(action);
   switch (action) {
-    case itemActions.ADD_ITEM:
-      return { ...state, notification: action.item };
+    case cartActions.ADD_ITEM:
+      return { ...state, item: action.item };
 
     default:
       return state;

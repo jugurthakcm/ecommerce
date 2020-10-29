@@ -9,8 +9,8 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
-import { useNotificationContext } from '../data/NotificationProvider';
-import { notificationActions } from '../data/notificationReducer';
+import { useCartContext } from '../data/CartProvider';
+import { cartActions } from '../data/cartReducer';
 
 const useStyles = makeStyles({
   root: {
@@ -31,12 +31,17 @@ const useStyles = makeStyles({
 
 function Item({ item }) {
   const classes = useStyles();
-  const [{ notification }, dispatch] = useNotificationContext();
+  const [{ itemCart }, dispatch] = useCartContext();
   const [itemAmount, setItemAmount] = useState(0);
   const handleClick = () => {
+    const itemSelected = {
+      name: item.name,
+      amount: itemAmount,
+      price: item.price,
+    };
     dispatch({
-      notification: itemAmount,
-      type: notificationActions.INCREMENT_NOTIFICATION,
+      item: itemSelected,
+      type: cartActions.ADD_ITEM,
     });
   };
 
