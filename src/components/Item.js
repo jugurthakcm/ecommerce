@@ -32,11 +32,11 @@ const useStyles = makeStyles({
 function Item({ item }) {
   const classes = useStyles();
   const [{ itemCart }, dispatch] = useCartContext();
-  const [itemAmount, setItemAmount] = useState(0);
+  const [itemQuantity, setItemQuantity] = useState(0);
   const handleClick = () => {
     const itemSelected = {
       name: item.name,
-      amount: itemAmount,
+      quantity: itemQuantity,
       price: item.price,
       id: item.id,
     };
@@ -73,13 +73,13 @@ function Item({ item }) {
         </CardContent>
       </CardActionArea>
       <CardActions className="card__actions">
-        <Typography component="p">Amount</Typography>
+        <Typography component="p">Quantity</Typography>
         <TextField
           id="standard-number"
           type="number"
-          className={`${classes.input} card__actionsAmount`}
-          value={itemAmount}
-          onChange={(e) => setItemAmount(e.target.value)}
+          className={`${classes.input} card__actionsQuantity`}
+          value={itemQuantity}
+          onChange={(e) => setItemQuantity(e.target.value)}
         />
         <Button size="small" color="primary" onClick={handleClick}>
           Add to cart

@@ -5,13 +5,22 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { CartProvider } from './data/CartProvider';
 import { initialCart, cartReducer } from './data/cartReducer';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Cart from './pages/Cart';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <BrowserRouter>
     <CartProvider initialCart={initialCart} cartReducer={cartReducer}>
-      <App />
+      <Switch>
+        <Route exact path="/">
+          <App />
+        </Route>
+        <Route path="/cart">
+          <Cart />
+        </Route>
+      </Switch>
     </CartProvider>
-  </React.StrictMode>,
+  </BrowserRouter>,
   document.getElementById('root')
 );
 

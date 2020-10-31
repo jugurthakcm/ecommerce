@@ -12,6 +12,10 @@
   color: #3f51b5;
 }
 
+.app__navbarCartLink {
+  color: black;
+}
+
 .app__navbarShoppingIcon {
   font-size: 30px !important;
   cursor: pointer;

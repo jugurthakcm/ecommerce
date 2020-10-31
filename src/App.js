@@ -3,23 +3,9 @@ import './App.css';
 import Item from './components/Item';
 import Badge from '@material-ui/core/Badge';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import Popover from '@material-ui/core/Popover';
-import Cart from './components/Cart';
+import { Link } from 'react-router-dom';
 
 function App() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  const open = Boolean(anchorEl);
-  const id = open ? 'simple-popover' : undefined;
-
   const Items = [
     {
       name: 'Item one',
@@ -52,30 +38,13 @@ function App() {
       <nav className="app__navbar">
         <h1>ShoppingCart</h1>
         <Badge badgeContent={3} color="primary">
-          <ShoppingCartIcon
-            className="app__navbarShoppingIcon"
-            aria-describedby={id}
-            variant="contained"
-            onClick={handleClick}
-          />
+          <Link to="/cart" className="app__navbarCartLink">
+            <ShoppingCartIcon
+              className="app__navbarShoppingIcon"
+              variant="contained"
+            />
+          </Link>
         </Badge>
-
-        <Popover
-          id={id}
-          open={open}
-          anchorEl={anchorEl}
-          onClose={handleClose}
-          anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'center',
-          }}
-          transformOrigin={{
-            vertical: 'top',
-            horizontal: 'center',
-          }}
-        >
-          <Cart />
-        </Popover>
       </nav>
       <div className="app__items">
         {Items.map((item) => (
