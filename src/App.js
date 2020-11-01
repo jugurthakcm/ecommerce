@@ -1,9 +1,7 @@
 import React from 'react';
 import './App.css';
 import Item from './components/Item';
-import Badge from '@material-ui/core/Badge';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import { Link } from 'react-router-dom';
+import Navbar from './components/Navbar';
 
 function App() {
   const Items = [
@@ -35,17 +33,7 @@ function App() {
 
   return (
     <div className="app">
-      <nav className="app__navbar">
-        <h1>ShoppingCart</h1>
-        <Badge badgeContent={3} color="primary">
-          <Link to="/cart" className="app__navbarCartLink">
-            <ShoppingCartIcon
-              className="app__navbarShoppingIcon"
-              variant="contained"
-            />
-          </Link>
-        </Badge>
-      </nav>
+      <Navbar />
       <div className="app__items">
         {Items.map((item) => (
           <Item item={item} key={item.id} />

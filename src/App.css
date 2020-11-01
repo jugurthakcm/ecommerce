@@ -8,8 +8,9 @@
   box-shadow: 0 3px 2px lightgray;
 }
 
-.app__navbar h1 {
+.app__navbar h1 a {
   color: #3f51b5;
+  text-decoration: none;
 }
 
 .app__navbarCartLink {
