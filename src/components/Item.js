@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -31,19 +31,32 @@ const useStyles = makeStyles({
 
 function Item({ item }) {
   const classes = useStyles();
-  const [{ itemCart }, dispatch] = useCartContext();
+  const dispatch = useCartContext()[1];
   const [itemQuantity, setItemQuantity] = useState(0);
+  const addItem = useRef();
   const handleClick = () => {
     const itemSelected = {
       name: item.name,
       quantity: itemQuantity,
       price: item.price,
+      img: item.img,
+      description: item.description,
       id: item.id,
     };
     dispatch({
       item: itemSelected,
       type: cartActions.ADD_ITEM,
     });
+  };
+
+  const handleChange = (e) => {
+    if (e.target.value > 0) {
+      addItem.current.classList.remove('Mui-disabled');
+      setItemQuantity(e.target.value);
+    } else {
+      addItem.current.classList.add('Mui-disabled');
+      setItemQuantity(0);
+    }
   };
 
   return (
@@ -79,9 +92,15 @@ function Item({ item }) {
           type="number"
           className={`${classes.input} card__actionsQuantity`}
           value={itemQuantity}
-          onChange={(e) => setItemQuantity(e.target.value)}
+          onChange={handleChange}
         />
-        <Button size="small" color="primary" onClick={handleClick}>
+        <Button
+          size="small"
+          color="primary"
+          onClick={handleClick}
+          ref={addItem}
+          className={`Mui-disabled button-${item.id}`}
+        >
           Add to cart
           <AddShoppingCartIcon fontSize="small" style={{ marginLeft: 5 }} />
         </Button>
