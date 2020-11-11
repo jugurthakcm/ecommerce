@@ -1,6 +1,6 @@
 import React from 'react';
 import Badge from '@material-ui/core/Badge';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import { Link } from 'react-router-dom';
 import MenuIcon from '@material-ui/icons/Menu';
 import './Navbar.css';
@@ -12,9 +12,9 @@ const Navbar = () => {
         <Link to="/">Ecommerce</Link>
       </h1>
       <MenuIcon />
-      <Badge badgeContent={0} color="primary">
+      <Badge badgeContent={2} color="secondary">
         <Link to="/cart" className="app__navbarCartLink">
-          <ShoppingCartIcon
+          <ShoppingCartOutlinedIcon
             className="app__navbarShoppingIcon"
             variant="contained"
           />
