@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { useCartContext } from '../data/CartProvider';
 import { cartActions } from '../data/cartReducer';
+import { Link } from 'react-router-dom';
 import './Item.css';
 
 function Item({ item }) {
@@ -36,10 +37,12 @@ function Item({ item }) {
   return (
     <div className="item">
       <div className="item__img">
-        <img src={item.img} alt={item.name} width="200px" />
+        <Link to={`/${item.id}`}>
+          <img src={item.img} alt={item.name} width="200px" />
+        </Link>
       </div>
       <div className="item__name">
-        <p>{item.name}</p>
+        <Link to={`/${item.id}`}>{item.name}</Link>
       </div>
       <div className="item__buy">
         <p className="item__price">$ {item.price}</p>

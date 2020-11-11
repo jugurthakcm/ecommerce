@@ -1,0 +1,72 @@
+.product {
+  display: grid;
+  grid-template-columns: 1fr 4fr 2fr;
+  grid-gap: 3rem;
+  height: 400px;
+}
+
+.product__thumbnails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--gray);
+  border-radius: 1rem;
+}
+
+.product__image {
+  background-color: var(--gray);
+  border-radius: 1rem;
+  text-align: center;
+}
+
+.product__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product__infoTitle {
+  font-size: 1.7rem;
+}
+
+.product__infoDescription {
+  font-size: 0.9rem;
+  opacity: 0.5;
+  margin-top: 0.5rem;
+  text-align: justify;
+}
+
+.product__infoPrice {
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
+.product__infoStock {
+  color: var(--green);
+
+  font-weight: 500;
+}
+
+.product__infoTotal {
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.product__infoQuantity .MuiInputBase-input {
+  width: 100px;
+}
+
+.product__infoButton {
+  color: white;
+  font-weight: 600;
+  background-color: var(--green);
+  border: none;
+  border-radius: 1rem;
+  padding: 0.6rem 0;
+  cursor: pointer;
+}
+
+.product__infoButton:hover,
+.product__infoButton:active {
+  background-color: #029e75;
+}

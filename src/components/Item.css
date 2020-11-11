@@ -19,6 +19,17 @@
 .item__name {
   font-size: 1rem;
   font-weight: 500;
+  cursor: pointer;
+}
+
+.item__name a {
+  color: black;
+  text-decoration: none;
+}
+
+.item__name a:hover,
+.item__name a:active {
+  color: var(--green);
 }
 
 .item__buy {
