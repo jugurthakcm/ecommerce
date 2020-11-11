@@ -1,0 +1,20 @@
+.app__navbar {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app__navbar h1 a {
+  color: var(--green);
+  text-decoration: none;
+}
+
+.app__navbarCartLink {
+  color: black;
+}
+
+.app__navbarShoppingIcon {
+  font-size: 30px !important;
+  cursor: pointer;
+}

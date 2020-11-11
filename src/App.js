@@ -2,32 +2,45 @@ import React from 'react';
 import './App.css';
 import Item from './components/Item';
 import Navbar from './components/Navbar';
+import shoes from './assets/images/shoes.png';
 
 function App() {
   const Items = [
     {
-      name: 'Item one',
+      name: 'Nike Air Max',
       description:
         ' Lorem ipsum, dolor sit amet consectetur adipisicing elit.Dignissimos, nemo.',
       price: '100',
-      img: 'https://i8.amplience.net/i/jpl/jd_341585_a?qlt=92&w=600&h=425&v=1',
+      img: shoes,
+      inStock: 30,
       id: 1,
     },
     {
-      name: 'Item two',
+      name: 'Nike Air Max',
       description:
         ' Lorem ipsum, dolor sit amet consectetur adipisicing elit.Dignissimos, nemo.',
       price: '200',
-      img: 'https://i8.amplience.net/i/jpl/jd_341585_a?qlt=92&w=600&h=425&v=1',
+      img: shoes,
+      inStock: 30,
       id: 2,
     },
     {
-      name: 'Item three',
+      name: 'Nike Air Max',
       description:
         ' Lorem ipsum, dolor sit amet consectetur adipisicing elit.Dignissimos, nemo.',
       price: '300',
-      img: 'https://i8.amplience.net/i/jpl/jd_341585_a?qlt=92&w=600&h=425&v=1',
+      img: shoes,
+      inStock: 30,
       id: 3,
+    },
+    {
+      name: 'Nike Air Max',
+      description:
+        ' Lorem ipsum, dolor sit amet consectetur adipisicing elit.Dignissimos, nemo.',
+      price: '400',
+      img: shoes,
+      inStock: 30,
+      id: 4,
     },
   ];
 

@@ -1,0 +1,50 @@
+.item__img {
+  background-color: var(--gray);
+  border-radius: 1.5rem;
+  padding: 0 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.item__img img {
+  position: relative;
+  bottom: 0;
+  transition: all 0.3s;
+}
+
+.item__img img:hover {
+  position: relative;
+  bottom: 2rem;
+}
+
+.item__name {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.item__buy {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item__price {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.item__buyBtn {
+  background-color: rgba(1, 198, 146, 0.1);
+  color: var(--green);
+  box-shadow: none;
+  border: none;
+  border-radius: 1rem;
+  padding: 0 1rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.item__buyBtn:hover,
+.item__buyBtn:active {
+  background-color: var(--green);
+  color: white;
+}
