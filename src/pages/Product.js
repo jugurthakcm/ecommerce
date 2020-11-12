@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import { useCartContext } from '../data/CartProvider';
+import { cartActions } from '../data/cartReducer';
 import './Product.css';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import Navbar from '../components/Navbar';
@@ -8,7 +10,41 @@ import { items } from '../data/itemsData';
 const Product = (props) => {
   const productId = props.match.params.product_id;
   const item = items.find((e) => e.id == productId);
-  console.log(item);
+  const dispatch = useCartContext()[1];
+  const [itemQuantity, setItemQuantity] = useState('');
+  const addItem = useRef();
+  console.log(addItem);
+
+  useEffect(() => {
+    addItem.current.disabled = true;
+  }, []);
+
+  const handleClick = () => {
+    const itemSelected = {
+      name: item.name,
+      quantity: itemQuantity,
+      price: item.price,
+      img: item.img,
+      description: item.description,
+      id: item.id,
+    };
+    dispatch({
+      item: itemSelected,
+      type: cartActions.ADD_ITEM,
+    });
+  };
+
+  const handleChange = (e) => {
+    if (e.target.value > 0) {
+      addItem.current.classList.remove('Btn-disabled');
+      addItem.current.disabled = false;
+      setItemQuantity(e.target.value);
+    } else {
+      addItem.current.classList.add('Btn-disabled');
+      addItem.current.disabled = true;
+      setItemQuantity(0);
+    }
+  };
   return (
     <>
       <Navbar />
@@ -53,11 +89,21 @@ const Product = (props) => {
           <div>
             <p className="product__infoStock">In stock : {item.inStock}</p>
             <div className="product__infoQuantity">
-              <TextField id="standard-number" label="Quantity" type="number" />
+              <TextField
+                id="standard-number"
+                label="Quantity"
+                type="number"
+                onChange={handleChange}
+                value={itemQuantity}
+              />
             </div>
           </div>
 
-          <button className="product__infoButton">
+          <button
+            className="product__infoButton Btn-disabled"
+            onClick={handleClick}
+            ref={addItem}
+          >
             Add to Cart <ShoppingCartOutlinedIcon />
           </button>
         </div>

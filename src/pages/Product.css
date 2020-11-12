@@ -1,6 +1,6 @@
 .product {
   display: grid;
-  grid-template-columns: 100px 4fr 2fr;
+  grid-template-columns: 120px 4fr 2fr;
   grid-gap: 2.5rem;
   height: 500px;
 }
@@ -36,7 +36,7 @@
   text-align: justify;
   height: 280px;
   overflow-y: scroll;
-  padding-right: 0.2rem;
+  padding-right: 0.4rem;
 }
 
 .product__infoPrice {
@@ -70,4 +70,15 @@
 .product__infoButton:hover,
 .product__infoButton:active {
   background-color: #029e75;
+}
+
+.Btn-disabled {
+  color: darkgray;
+  background-color: lightgray;
+  cursor: not-allowed;
+}
+
+.Btn-disabled:hover,
+.Btn-disabled:active {
+  background-color: lightgray;
 }
