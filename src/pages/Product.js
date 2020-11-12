@@ -1,6 +1,6 @@
 import React from 'react';
 import './Product.css';
-import shoes from '../assets/images/shoes.png';
+import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import Navbar from '../components/Navbar';
 import TextField from '@material-ui/core/TextField';
 import { items } from '../data/itemsData';
@@ -14,21 +14,36 @@ const Product = (props) => {
       <Navbar />
       <div className="product">
         <div className="product__thumbnails">
-          <img src={item.img} alt="shoes" width="100px" />
+          <img src={item.img} alt="shoes" width="80px" />
           <img
             src={item.img}
             alt="shoes"
             style={{ transform: 'scaleX(-1)' }}
-            width="100px"
+            width="80px"
           />
         </div>
         <div className="product__image">
-          <img src={item.img} alt="shoes" width="400px" />
+          <img src={item.img} alt="shoes" width="500px" />
         </div>
         <div className="product__info">
           <div>
             <h2 className="product__infoTitle">{item.name}</h2>
-            <p className="product__infoDescription">{item.description}</p>
+            <p className="product__infoDescription">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora
+              nemo asperiores omnis nulla nesciunt odio quas provident aliquam,
+              quisquam consequuntur. Lorem, ipsum dolor sit amet consectetur
+              adipisicing elit. Quasi architecto, nisi commodi, dolor fugit rem
+              possimus ipsa corporis, at expedita minima! Ipsa voluptatibus
+              temporibus explicabo aut consequuntur. Aut, tempora consequatur!
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Excepturi, quia? Accusantium, soluta hic. Pariatur aperiam illum
+              optio perferendis ab tenetur minima laudantium eius iusto odit
+              cupiditate explicabo, cumque recusandae necessitatibus! Lorem
+              ipsum dolor sit amet consectetur adipisicing elit. Corporis
+              consequuntur, animi laudantium veritatis repellendus eum
+              perspiciatis? Deleniti eius harum est expedita fugiat pariatur
+              quod, quam, unde, cum tempore voluptate labore.
+            </p>
           </div>
 
           <p className="product__infoPrice">
@@ -42,10 +57,9 @@ const Product = (props) => {
             </div>
           </div>
 
-          <p className="product__infoTotal">
-            Total : <sup style={{ fontSize: '0.9rem' }}>$</sup> 1200
-          </p>
-          <button className="product__infoButton">Add to Cart</button>
+          <button className="product__infoButton">
+            Add to Cart <ShoppingCartOutlinedIcon />
+          </button>
         </div>
       </div>
     </>
