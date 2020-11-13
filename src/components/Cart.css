@@ -1,0 +1,127 @@
+.cart {
+  width: 600px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  background-color: white;
+  box-shadow: -5px 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  padding: 0.5rem;
+  transition: right 1s ease;
+}
+
+.cart__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart h2 {
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.cart__empty {
+  text-align: center;
+}
+
+.cart .MuiTableContainer-root {
+  max-height: 470px;
+  overflow-y: scroll;
+}
+
+.cart__item {
+  display: flex;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.cart__itemRight {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.cart__itemName {
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.cart__actions {
+  width: 100%;
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  right: 7px;
+}
+
+.cart__actions button {
+  border: none;
+  padding: 0 20px;
+  height: 40px;
+  border-radius: 7px;
+  font-weight: 500;
+}
+
+.cart__actionsDelete {
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.cart__actionsDelete:hover,
+.cart__actionsDelete:active {
+  background-color: rgb(209, 0, 0);
+}
+
+.cart__actionsCheckout {
+  background-color: var(--green);
+  color: white;
+  cursor: pointer;
+}
+
+.cart__actionsCheckout:hover,
+.cart__actionsCheckout:active {
+  background-color: #029e75;
+}
+
+.cart__actionsClose {
+  color: gray;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.cart__actionsClose:hover,
+.cart__actionsClose:active {
+  text-decoration: underline;
+}
+
+.cart__closed {
+  right: -620px;
+}
+
+.cart__opened {
+  right: 0;
+}
+
+.Mui-checked {
+  color: var(--green) !important;
+}
+
+.MuiTableCell-root {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.MuiTableCell-head {
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+}

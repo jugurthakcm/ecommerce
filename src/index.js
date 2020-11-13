@@ -5,18 +5,16 @@ import * as serviceWorker from './serviceWorker';
 import { CartProvider } from './data/CartProvider';
 import { initialCart, cartReducer } from './data/cartReducer';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Cart from './pages/Cart';
 import Product from './pages/Product';
+import Cart from './components/Cart';
 
 ReactDOM.render(
   <BrowserRouter>
     <CartProvider initialCart={initialCart} cartReducer={cartReducer}>
+      <Cart />
       <Switch>
         <Route exact path="/">
           <App />
-        </Route>
-        <Route path="/cart">
-          <Cart />
         </Route>
         <Route path="/:product_id" component={Product} />
       </Switch>

@@ -10,10 +10,6 @@
   text-decoration: none;
 }
 
-.app__navbarCartLink {
-  color: black;
-}
-
 .app__navbarShoppingIcon {
   font-size: 30px !important;
   cursor: pointer;

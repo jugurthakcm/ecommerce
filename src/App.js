@@ -8,6 +8,7 @@ function App() {
   return (
     <div className="app">
       <Navbar />
+
       <div className="app__itemsContainer">
         <div className="app__itemsHeader">
           <h2>Shoes</h2>
