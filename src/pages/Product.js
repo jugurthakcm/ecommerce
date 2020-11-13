@@ -95,6 +95,12 @@ const Product = (props) => {
                 type="number"
                 onChange={handleChange}
                 value={itemQuantity}
+                InputProps={{
+                  inputProps: {
+                    max: item.inStock,
+                    min: 0,
+                  },
+                }}
               />
             </div>
           </div>
