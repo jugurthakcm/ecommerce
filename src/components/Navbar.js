@@ -3,8 +3,11 @@ import Badge from '@material-ui/core/Badge';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
+import { useCartContext } from '../data/CartProvider';
 
 const Navbar = () => {
+  const items = useCartContext()[0];
+  console.log(items);
   const handleCartOpen = () => {
     const cart = document.getElementsByClassName('cart')[0];
     cart.classList.remove('cart__closed');
@@ -16,7 +19,7 @@ const Navbar = () => {
         <Link to="/">Ecommerce</Link>
       </h1>
 
-      <Badge badgeContent={2} color="secondary">
+      <Badge badgeContent={items.length} color="secondary">
         <ShoppingCartOutlinedIcon
           className="app__navbarShoppingIcon"
           variant="contained"

@@ -8,8 +8,9 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import Checkbox from '@material-ui/core/Checkbox';
+
 import Alert from '@material-ui/lab/Alert';
+import CartItem from './CartItem';
 
 const Cart = () => {
   const items = useCartContext()[0];
@@ -35,18 +36,7 @@ const Cart = () => {
         </TableHead>
         <TableBody>
           {items.map((item) => (
-            <TableRow key={item.name}>
-              <TableCell padding="checkbox">
-                <Checkbox />
-              </TableCell>
-              <TableCell component="th" scope="row">
-                <img src={item.img} alt={item.name} width="70px" />
-              </TableCell>
-              <TableCell align="left">{item.name}</TableCell>
-              <TableCell align="left">{item.quantity}</TableCell>
-              <TableCell align="left">{item.price}</TableCell>
-              <TableCell align="left">{item.price * item.quantity}</TableCell>
-            </TableRow>
+            <CartItem item={item} key={item.id} />
           ))}
         </TableBody>
       </Table>
@@ -56,6 +46,7 @@ const Cart = () => {
       Your cart is empty.
     </Alert>
   );
+  const disableBtn = items.length ? false : true;
   return (
     <div className="cart cart__closed" id="simple-popover" ref={closeCart}>
       <div className="cart__header">
@@ -66,8 +57,12 @@ const Cart = () => {
       </div>
       {cart}
       <div className="cart__actions">
-        <button className="cart__actionsDelete">Delete</button>
-        <button className="cart__actionsCheckout">Checkout ($ 4000)</button>
+        <button className="cart__actionsDelete" disabled={disableBtn}>
+          Delete
+        </button>
+        <button className="cart__actionsCheckout" disabled={disableBtn}>
+          Checkout ($ 4000)
+        </button>
       </div>
     </div>
   );
