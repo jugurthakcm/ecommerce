@@ -13,7 +13,6 @@ const Product = (props) => {
   const dispatch = useCartContext()[1];
   const [itemQuantity, setItemQuantity] = useState('');
   const addItem = useRef();
-  console.log(addItem);
 
   useEffect(() => {
     addItem.current.disabled = true;

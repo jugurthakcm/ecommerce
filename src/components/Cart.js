@@ -1,7 +1,5 @@
 import React, { useRef } from 'react';
-
 import './Cart.css';
-
 import { useCartContext } from '../data/CartProvider';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -12,7 +10,6 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Checkbox from '@material-ui/core/Checkbox';
 import Alert from '@material-ui/lab/Alert';
-import { Popover } from '@material-ui/core';
 
 const Cart = () => {
   const items = useCartContext()[0];
@@ -48,7 +45,7 @@ const Cart = () => {
               <TableCell align="left">{item.name}</TableCell>
               <TableCell align="left">{item.quantity}</TableCell>
               <TableCell align="left">{item.price}</TableCell>
-              <TableCell align="left">1200</TableCell>
+              <TableCell align="left">{item.price * item.quantity}</TableCell>
             </TableRow>
           ))}
         </TableBody>
