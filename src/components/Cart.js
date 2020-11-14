@@ -26,12 +26,12 @@ const Cart = () => {
       <Table stickyHeader aria-label="sticky table">
         <TableHead>
           <TableRow>
-            <TableCell></TableCell>
             <TableCell>Image</TableCell>
             <TableCell align="left">Product</TableCell>
             <TableCell align="left">Quantity</TableCell>
             <TableCell align="left">Price ($)</TableCell>
             <TableCell align="left">Total ($)</TableCell>
+            <TableCell></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

@@ -24,13 +24,16 @@ export const initialCart = [
 
 export const cartActions = {
   ADD_ITEM: 'ADD_ITEM',
+  DELETE_ITEM: 'DELETE_ITEM',
 };
 
-export const cartReducer = (state, action) => {
+export const cartReducer = (state = initialCart, action) => {
   switch (action.type) {
     case cartActions.ADD_ITEM:
       return [...state, action.item];
-
+    case cartActions.DELETE_ITEM:
+      const newState = state.filter((e) => e.id !== action.deletedItem);
+      return [...newState];
     default:
       return state;
   }

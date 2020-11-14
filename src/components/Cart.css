@@ -75,16 +75,14 @@
   cursor: not-allowed;
 }
 
-.cart__actionsDelete {
-  background-color: red;
-  color: white;
+.cart__deleteIcon {
+  opacity: 0.4;
   cursor: pointer;
-  margin-right: 10px;
 }
 
-.cart__actionsDelete:hover,
-.cart__actionsDelete:active {
-  background-color: rgb(209, 0, 0);
+.cart__deleteIcon:hover,
+.cart__deleteIcon:active {
+  opacity: 0.9;
 }
 
 .cart__actionsCheckout {
