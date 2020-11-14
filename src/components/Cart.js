@@ -16,6 +16,10 @@ const Cart = () => {
   const items = useCartContext()[0];
   const closeCart = useRef();
 
+  const total = items
+    .map((item) => item.price * item.quantity)
+    .reduce((sum, i) => sum + i, 0);
+
   const handleCloseCart = () => {
     closeCart.current.classList.add('cart__closed');
     closeCart.current.classList.remove('cart__opened');
@@ -57,11 +61,8 @@ const Cart = () => {
       </div>
       {cart}
       <div className="cart__actions">
-        <button className="cart__actionsDelete" disabled={disableBtn}>
-          Delete
-        </button>
         <button className="cart__actionsCheckout" disabled={disableBtn}>
-          Checkout ($ 4000)
+          Checkout ($ {total})
         </button>
       </div>
     </div>
