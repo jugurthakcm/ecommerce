@@ -6,6 +6,8 @@ import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import Navbar from '../components/Navbar';
 import TextField from '@material-ui/core/TextField';
 import { items } from '../data/itemsData';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { Carousel } from 'react-responsive-carousel';
 
 const Product = (props) => {
   const productId = props.match.params.product_id;
@@ -49,17 +51,19 @@ const Product = (props) => {
     <>
       <Navbar />
       <div className="product">
-        <div className="product__thumbnails">
-          <img src={item.img} alt="shoes" width="80px" />
-          <img
-            src={item.img}
-            alt="shoes"
-            style={{ transform: 'scaleX(-1)' }}
-            width="80px"
-          />
-        </div>
         <div className="product__image">
-          <img src={item.img} alt="shoes" width="500px" />
+          <Carousel>
+            <div>
+              <img src={item.img} alt={item.name} />
+            </div>
+            <div>
+              <img
+                src={item.img}
+                alt={item.name}
+                style={{ transform: 'scaleX(-1)' }}
+              />
+            </div>
+          </Carousel>
         </div>
         <div className="product__info">
           <div>
@@ -86,23 +90,21 @@ const Product = (props) => {
             <sup style={{ fontSize: '1rem' }}>$</sup> {item.price}
           </p>
 
-          <div>
-            <p className="product__infoStock">In stock : {item.inStock}</p>
-            <div className="product__infoQuantity">
-              <TextField
-                id="standard-number"
-                label="Quantity"
-                type="number"
-                onChange={handleChange}
-                value={itemQuantity}
-                InputProps={{
-                  inputProps: {
-                    max: item.inStock,
-                    min: 0,
-                  },
-                }}
-              />
-            </div>
+          <p className="product__infoStock">Left in stock : {item.inStock}</p>
+          <div className="product__infoQuantity">
+            <TextField
+              id="standard-number"
+              label="Quantity"
+              type="number"
+              onChange={handleChange}
+              value={itemQuantity}
+              InputProps={{
+                inputProps: {
+                  max: item.inStock,
+                  min: 0,
+                },
+              }}
+            />
           </div>
 
           <button
