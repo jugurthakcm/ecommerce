@@ -37,14 +37,14 @@ const Product = (props) => {
   };
 
   const handleChange = (e) => {
-    if (e.target.value > 0) {
+    if (e.target.value > 0 && e.target.value <= item.inStock) {
       addItem.current.classList.remove('Btn-disabled');
       addItem.current.disabled = false;
       setItemQuantity(e.target.value);
     } else {
       addItem.current.classList.add('Btn-disabled');
       addItem.current.disabled = true;
-      setItemQuantity(0);
+      setItemQuantity('');
     }
   };
   return (
