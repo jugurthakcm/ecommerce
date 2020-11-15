@@ -8,14 +8,12 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-
 import Alert from '@material-ui/lab/Alert';
 import CartItem from './CartItem';
 
 const Cart = () => {
   const items = useCartContext()[0];
   const closeCart = useRef();
-
   const total = items
     .map((item) => item.price * item.quantity)
     .reduce((sum, i) => sum + i, 0);
@@ -52,7 +50,7 @@ const Cart = () => {
   );
   const disableBtn = items.length ? false : true;
   return (
-    <div className="cart cart__closed" id="simple-popover" ref={closeCart}>
+    <div className="cart cart__closed" ref={closeCart}>
       <div className="cart__header">
         <h2>Shopping Cart</h2>
         <p className="cart__actionsClose" onClick={handleCloseCart}>

@@ -14,6 +14,7 @@ function Item({ item }) {
       price: item.price,
       img: item.img,
       description: item.description,
+      inStock: item.inStock,
       id: item.id,
     };
     dispatch({

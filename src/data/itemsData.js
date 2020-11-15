@@ -25,7 +25,7 @@ export const items = [
       ' Lorem ipsum, dolor sit amet consectetur adipisicing elit.Dignissimos, nemo.',
     price: '300',
     img: shoes,
-    inStock: 30,
+    inStock: 60,
     id: 3,
   },
   {

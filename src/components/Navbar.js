@@ -7,7 +7,6 @@ import { useCartContext } from '../data/CartProvider';
 
 const Navbar = () => {
   const items = useCartContext()[0];
-  console.log(items);
   const handleCartOpen = () => {
     const cart = document.getElementsByClassName('cart')[0];
     cart.classList.remove('cart__closed');

@@ -11,7 +11,7 @@ const Product = (props) => {
   const productId = props.match.params.product_id;
   const item = items.find((e) => e.id == productId);
   const dispatch = useCartContext()[1];
-  const [itemQuantity, setItemQuantity] = useState('');
+  const [itemQuantity, setItemQuantity] = useState();
   const addItem = useRef();
 
   useEffect(() => {
@@ -25,6 +25,7 @@ const Product = (props) => {
       price: item.price,
       img: item.img,
       description: item.description,
+      inStock: item.inStock,
       id: item.id,
     };
     dispatch({

@@ -129,3 +129,17 @@
   padding-top: 5px !important;
   padding-bottom: 5px !important;
 }
+
+.cart__itemQtySelector {
+  height: 30px;
+  width: 60px;
+  font-size: 0.85rem !important;
+}
+
+.cart__itemQtySelector:active {
+  border-color: black;
+}
+
+.cart__itemQtyValue {
+  font-size: 0.85rem !important;
+}
