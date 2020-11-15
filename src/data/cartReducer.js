@@ -31,7 +31,21 @@ export const cartActions = {
 export const cartReducer = (state = initialCart, action) => {
   switch (action.type) {
     case cartActions.ADD_ITEM:
-      return [...state, action.item];
+      console.log(action.item);
+      let index = null;
+      state.map(
+        (e) => (index = e.id === action.item.id ? state.indexOf(e) : null)
+      );
+      if (index !== null) {
+        const el = state[index];
+        Object.assign(el, {
+          quantity: el.quantity + action.item.quantity,
+        });
+        return [...state];
+      } else {
+        return [...state, action.item];
+      }
+
     case cartActions.DELETE_ITEM:
       return state.filter((e) => e.id !== action.deletedItem);
 

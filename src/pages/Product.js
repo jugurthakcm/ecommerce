@@ -21,7 +21,7 @@ const Product = (props) => {
   const handleClick = () => {
     const itemSelected = {
       name: item.name,
-      quantity: itemQuantity,
+      quantity: parseInt(itemQuantity),
       price: item.price,
       img: item.img,
       description: item.description,
