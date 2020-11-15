@@ -1,9 +1,9 @@
-import React, { useState, useReducer } from 'react';
+import React from 'react';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { useCartContext } from '../data/CartProvider';
-import { cartActions, cartReducer, initialCart } from '../data/cartReducer';
+import { cartActions } from '../data/cartReducer';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';

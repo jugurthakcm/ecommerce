@@ -9,7 +9,7 @@ import { items } from '../data/itemsData';
 
 const Product = (props) => {
   const productId = props.match.params.product_id;
-  const item = items.find((e) => e.id == productId);
+  const item = items.find((e) => e.id == productId); // eslint-disable-line
   const dispatch = useCartContext()[1];
   const [itemQuantity, setItemQuantity] = useState();
   const addItem = useRef();
