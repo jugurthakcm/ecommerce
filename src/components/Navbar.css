@@ -1,16 +1,60 @@
-.app__navbar {
+.navbar {
   padding: 20px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.app__navbar h1 a {
+.navbar h1 a {
   color: var(--green);
   text-decoration: none;
 }
 
-.app__navbarShoppingIcon {
+.navbar__ShoppingIcon {
   font-size: 30px !important;
+  cursor: pointer;
+}
+
+.navbar__right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__rightSearch {
+  display: flex;
+  align-items: center;
+  background-color: var(--gray);
+  border-radius: 0.6rem;
+  padding: 0.6rem 1rem;
+  width: 120px;
+  position: relative;
+  overflow: hidden;
+  transition: width 0.5s;
+}
+
+.navbar__rightSearch:focus-within {
+  width: 400px;
+}
+
+.navbar__rightSearch input {
+  border: none;
+  background-color: var(--gray);
+  border-radius: 1rem;
+  width: 98%;
+  padding-left: 1rem;
+}
+
+.navbar__rightSearch input::placeholder {
+  color: gray;
+}
+
+.navbar__rightSearch .MuiSvgIcon-root {
+  position: absolute;
+  left: 7px;
+  color: gray;
+}
+
+.navbar__rightAccount {
+  margin: 0 1rem;
   cursor: pointer;
 }
