@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import './App.css';
 import Item from './components/Item';
@@ -8,8 +8,13 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import cream from './assets/images/Cream.jpg';
 import food from './assets/images/Food.jpg';
 import parfume from './assets/images/Parfume.jpg';
+import ItemsCarousel from 'react-items-carousel';
+import NavigateNextRoundedIcon from '@material-ui/icons/NavigateNextRounded';
+import NavigateBeforeRoundedIcon from '@material-ui/icons/NavigateBeforeRounded';
 
 function App() {
+  const [activeItemIndex, setActiveItemIndex] = useState(0);
+  const chevronWidth = 40;
   return (
     <div className="app">
       <Navbar />
@@ -40,10 +45,27 @@ function App() {
           <div className="app__itemsHeader">
             <h2>Shoes</h2>
           </div>
-          <div className="app__items">
-            {items.map((item) => (
-              <Item item={item} key={item.id} />
-            ))}
+          <div className="app__items" style={{ padding: `0 50px` }}>
+            <ItemsCarousel
+              requestToChangeActive={setActiveItemIndex}
+              activeItemIndex={activeItemIndex}
+              numberOfCards={4}
+              gutter={20}
+              leftChevron={
+                <button>
+                  {<NavigateBeforeRoundedIcon fontSize="large" />}
+                </button>
+              }
+              rightChevron={
+                <button>{<NavigateNextRoundedIcon fontSize="large" />}</button>
+              }
+              outsideChevron
+              chevronWidth={40}
+            >
+              {items.map((item) => (
+                <Item item={item} key={item.id} />
+              ))}
+            </ItemsCarousel>
           </div>
         </div>
       </div>
