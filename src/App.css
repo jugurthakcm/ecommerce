@@ -52,3 +52,18 @@ body {
   display: flex;
   justify-content: space-between;
 }
+
+.app__carousel .carousel {
+  border-radius: 1rem;
+}
+
+.app__carousel img {
+  height: 400px;
+  object-fit: cover;
+}
+
+.dot {
+  background: var(--green) !important;
+  box-shadow: none !important;
+  border: 1px solid white;
+}
