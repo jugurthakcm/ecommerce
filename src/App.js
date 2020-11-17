@@ -62,6 +62,8 @@ function App() {
               outsideChevron
               chevronWidth={40}
               slidesToScroll={4}
+              alwaysShowChevrons
+              infiniteLoop
             >
               {items.map((item) => (
                 <Item item={item} key={item.id} />
