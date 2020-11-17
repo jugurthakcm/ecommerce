@@ -14,7 +14,7 @@ import NavigateBeforeRoundedIcon from '@material-ui/icons/NavigateBeforeRounded'
 
 function App() {
   const [activeItemIndex, setActiveItemIndex] = useState(0);
-  const chevronWidth = 40;
+
   return (
     <div className="app">
       <Navbar />
@@ -61,6 +61,7 @@ function App() {
               }
               outsideChevron
               chevronWidth={40}
+              slidesToScroll={4}
             >
               {items.map((item) => (
                 <Item item={item} key={item.id} />
