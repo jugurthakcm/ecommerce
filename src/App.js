@@ -13,35 +13,38 @@ function App() {
   return (
     <div className="app">
       <Navbar />
-      <div className="app__carousel">
-        <Carousel
-          autoPlay
-          infiniteLoop
-          interval={2000}
-          showThumbs={false}
-          showStatus={false}
-          showArrows
-          stopOnHover={false}
-        >
-          <div>
-            <img src={cream} alt="cream" />
-          </div>
-          <div>
-            <img src={food} alt="food" />
-          </div>
-          <div>
-            <img src={parfume} alt="parfume" />
-          </div>
-        </Carousel>
-      </div>
-      <div className="app__itemsContainer">
-        <div className="app__itemsHeader">
-          <h2>Shoes</h2>
+
+      <div className="app__container">
+        <div className="app__carousel">
+          <Carousel
+            autoPlay
+            infiniteLoop
+            interval={2000}
+            showThumbs={false}
+            showStatus={false}
+            showArrows
+            stopOnHover={false}
+          >
+            <div>
+              <img src={cream} alt="cream" />
+            </div>
+            <div>
+              <img src={food} alt="food" />
+            </div>
+            <div>
+              <img src={parfume} alt="parfume" />
+            </div>
+          </Carousel>
         </div>
-        <div className="app__items">
-          {items.map((item) => (
-            <Item item={item} key={item.id} />
-          ))}
+        <div className="app__itemsContainer">
+          <div className="app__itemsHeader">
+            <h2>Shoes</h2>
+          </div>
+          <div className="app__items">
+            {items.map((item) => (
+              <Item item={item} key={item.id} />
+            ))}
+          </div>
         </div>
       </div>
     </div>
