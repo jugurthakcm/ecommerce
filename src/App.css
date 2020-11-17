@@ -33,8 +33,10 @@ body {
 }
 
 .app__items {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5rem;
+  justify-items: space-between;
 }
 
 .app__carousel .carousel {

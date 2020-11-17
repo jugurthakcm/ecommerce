@@ -3,6 +3,7 @@
   grid-template-columns: 650px auto;
   grid-gap: 2.5rem;
   height: 500px;
+  padding: 0 4rem;
 }
 
 .product .carousel .slide {
