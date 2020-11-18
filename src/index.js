@@ -16,7 +16,7 @@ ReactDOM.render(
         <Route exact path="/">
           <App />
         </Route>
-        <Route path="/:product_id" component={Product} />
+        <Route path="/:category/:product_id" component={Product} />
       </Switch>
     </CartProvider>
   </BrowserRouter>,
