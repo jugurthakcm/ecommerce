@@ -6,15 +6,16 @@ import './Item.css';
 
 function Item({ item }) {
   const dispatch = useCartContext()[1];
+  const inStock = 40;
 
   const handleClick = () => {
     const itemSelected = {
-      name: item.name,
+      title: item.title,
       quantity: 1,
       price: item.price,
-      img: item.img,
+      image: item.image,
       description: item.description,
-      inStock: item.inStock,
+      inStock: inStock,
       id: item.id,
     };
     dispatch({
@@ -27,11 +28,11 @@ function Item({ item }) {
     <div className="item">
       <div className="item__img">
         <Link to={`/${item.id}`}>
-          <img src={item.image} alt={item.name} />
+          <img src={item.image} alt={item.title} />
         </Link>
       </div>
-      <div className="item__name">
-        <Link to={`/${item.id}`}>{item.name}</Link>
+      <div className="item__title">
+        <Link to={`/${item.id}`}>{item.title}</Link>
       </div>
       <div className="item__buy">
         <p className="item__price">$ {item.price}</p>

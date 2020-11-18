@@ -28,9 +28,9 @@ const CartItem = ({ item }) => {
   return (
     <TableRow key={item.id}>
       <TableCell component="th" scope="row">
-        <img src={item.img} alt={item.name} width="70px" />
+        <img src={item.image} alt={item.title} width="70px" />
       </TableCell>
-      <TableCell align="left">{item.name}</TableCell>
+      <TableCell align="left">{item.title}</TableCell>
       <TableCell align="left">
         <FormControl variant="outlined">
           <Select

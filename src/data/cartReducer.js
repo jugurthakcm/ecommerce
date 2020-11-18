@@ -1,4 +1,3 @@
-import shoes from '../assets/images/shoes.png';
 export const initialCart = [];
 
 export const cartActions = {
