@@ -27,7 +27,7 @@ function Item({ item }) {
     <div className="item">
       <div className="item__img">
         <Link to={`/${item.id}`}>
-          <img src={item.img} alt={item.name} width="200px" />
+          <img src={item.image} alt={item.name} />
         </Link>
       </div>
       <div className="item__name">

@@ -1,3 +1,5 @@
+.item {
+}
 .item__img {
   background-color: var(--gray);
   border-radius: 1.5rem;
@@ -7,15 +9,13 @@
 
 .item__img img {
   position: relative;
-  bottom: 0;
+  top: 50%;
   left: 50%;
   transform: translateX(-50%);
   transition: all 0.3s;
   cursor: pointer;
-}
-
-.item__img img:hover {
-  bottom: 2rem;
+  height: 250px;
+  width: 200px;
 }
 
 .item__name {
