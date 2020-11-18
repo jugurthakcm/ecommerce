@@ -10,7 +10,6 @@ import Select from '@material-ui/core/Select';
 
 const CartItem = ({ item }) => {
   const dispatch = useCartContext()[1];
-  // const [quantity, setQuantity] = useState(item.quantity);
   const handleDeleteItem = () => {
     dispatch({ type: cartActions.DELETE_ITEM, deletedItem: item.id });
   };
@@ -26,11 +25,13 @@ const CartItem = ({ item }) => {
   };
 
   return (
-    <TableRow key={item.id}>
+    <TableRow key={item.id} className="cart__item">
       <TableCell component="th" scope="row">
-        <img src={item.image} alt={item.title} width="70px" />
+        <img src={item.image} alt={item.title} height="70px" />
       </TableCell>
-      <TableCell align="left">{item.title}</TableCell>
+      <TableCell align="left" className="cart__itemTitle">
+        <p>{item.title}</p>
+      </TableCell>
       <TableCell align="left">
         <FormControl variant="outlined">
           <Select

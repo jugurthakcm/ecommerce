@@ -39,16 +39,23 @@
   margin-bottom: 1rem;
 }
 
+.cart__item img {
+  margin-top: 7px !important;
+}
+
+.cart__itemTitle p {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  -webkit-line-clamp: 2 !important;
+  line-height: 1.4rem !important;
+  max-height: 2.8rem !important;
+}
+
 .cart__itemRight {
   display: flex;
   justify-content: space-around;
   align-items: center;
   width: 100%;
-}
-
-.cart__itemName {
-  font-weight: 600;
-  font-size: 1.3rem;
 }
 
 .cart__actions {
