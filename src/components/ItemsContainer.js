@@ -1,7 +1,6 @@
 import React from 'react';
 import { ItemsData } from '../data/itemsData';
 import Item from './Item';
-import { capitalize } from '../util';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 
@@ -16,7 +15,7 @@ const ItemsContainer = ({ category }) => {
   return (
     <div className="app__itemsContainer">
       <div className="app__itemsHeader">
-        <h2>{capitalize(category)}</h2>
+        <h2>{category}</h2>
       </div>
 
       <div className="app__items">

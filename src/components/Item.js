@@ -37,7 +37,7 @@ function Item({ item }) {
         <Link to={`${categoryLink}/${item.id}`}>{item.title}</Link>
       </div>
       <div className="item__buy">
-        <p className="item__price">$ {item.price}</p>
+        <p className="item__price">$ {item.price.toFixed(2)}</p>
         <button className="item__buyBtn" onClick={handleClick}>
           Add to Cart
         </button>

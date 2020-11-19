@@ -9,11 +9,13 @@ export const cartActions = {
 export const cartReducer = (state = initialCart, action) => {
   switch (action.type) {
     case cartActions.ADD_ITEM:
-      console.log(action.item);
       let index = null;
-      state.map(
-        (e) => (index = e.id === action.item.id ? state.indexOf(e) : null)
-      );
+      for (const el of state) {
+        if (el.id === action.item.id) {
+          index = state.indexOf(el);
+        }
+      }
+
       if (index !== null) {
         const el = state[index];
         Object.assign(el, {

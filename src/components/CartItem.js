@@ -47,7 +47,7 @@ const CartItem = ({ item }) => {
           </Select>
         </FormControl>
       </TableCell>
-      <TableCell align="left">{item.price}</TableCell>
+      <TableCell align="left">{item.price.toFixed(2)}</TableCell>
       <TableCell align="left">{item.price * item.quantity}</TableCell>
       <TableCell padding="checkbox">
         <DeleteIcon className="cart__deleteIcon" onClick={handleDeleteItem} />

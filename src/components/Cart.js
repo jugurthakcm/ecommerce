@@ -60,7 +60,7 @@ const Cart = () => {
       {cart}
       <div className="cart__actions">
         <button className="cart__actionsCheckout" disabled={disableBtn}>
-          Checkout ($ {total})
+          Checkout ($ {total.toFixed(2)})
         </button>
       </div>
     </div>
