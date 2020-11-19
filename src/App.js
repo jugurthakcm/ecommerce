@@ -40,8 +40,11 @@ function App() {
             </div>
           </Carousel>
         </div>
-        {categories &&
-          categories.map((category) => <ItemsContainer category={category} />)}
+        {categories ? (
+          categories.map((category) => <ItemsContainer category={category} />)
+        ) : (
+          <div className="page__loading"></div>
+        )}
       </div>
       <div className="app__newsletter">
         <h2>Newsletter</h2>
