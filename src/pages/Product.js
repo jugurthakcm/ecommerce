@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { useCartContext } from '../data/CartProvider';
 import { cartActions } from '../data/cartReducer';
 import './Product.css';
@@ -17,10 +17,6 @@ const Product = (props) => {
   const [itemQuantity, setItemQuantity] = useState();
   const addItem = useRef();
   const inStock = 40;
-
-  /*  useEffect(() => {
-    addItem.current.disabled = true;
-  }, []); */
 
   const handleClick = () => {
     const itemSelected = {

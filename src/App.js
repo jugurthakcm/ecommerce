@@ -2,7 +2,7 @@ import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import './App.css';
 import Navbar from './components/Navbar';
-
+import ArrowForwardIosRoundedIcon from '@material-ui/icons/ArrowForwardIosRounded';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import cream from './assets/images/Cream.jpg';
 import food from './assets/images/Food.jpg';
@@ -17,7 +17,6 @@ function App() {
   return (
     <div className="app">
       <Navbar />
-
       <div className="app__container">
         <div className="app__carousel">
           <Carousel
@@ -42,6 +41,21 @@ function App() {
         </div>
         {categories &&
           categories.map((category) => <ItemsContainer category={category} />)}
+        <div className="app__newsletter">
+          <h2>Newsletter</h2>
+
+          <form className="app__newsletterForm">
+            <input
+              type="email"
+              placeholder="Enter your email adress here"
+              required
+            />
+            <button type="submit">
+              <span>SUBMIT</span>
+              <ArrowForwardIosRoundedIcon fontSize="small" />
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );
