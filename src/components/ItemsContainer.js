@@ -5,6 +5,8 @@ import NavigateBeforeRoundedIcon from '@material-ui/icons/NavigateBeforeRounded'
 import { ItemsData } from '../data/itemsData';
 import Item from './Item';
 import { capitalize } from '../util';
+import AliceCarousel from 'react-alice-carousel';
+import 'react-alice-carousel/lib/alice-carousel.css';
 
 const ItemsContainer = ({ category }) => {
   const [activeItemIndex, setActiveItemIndex] = useState(0);
@@ -18,28 +20,14 @@ const ItemsContainer = ({ category }) => {
       <div className="app__itemsHeader">
         <h2>{capitalize(category)}</h2>
       </div>
-      <div className="app__items" style={{ padding: `0 50px` }}>
-        <ItemsCarousel
-          requestToChangeActive={setActiveItemIndex}
-          activeItemIndex={activeItemIndex}
-          numberOfCards={4}
-          gutter={20}
-          leftChevron={
-            <button>{<NavigateBeforeRoundedIcon fontSize="large" />}</button>
-          }
-          rightChevron={
-            <button>{<NavigateNextRoundedIcon fontSize="large" />}</button>
-          }
-          outsideChevron
-          chevronWidth={40}
-          slidesToScroll={4}
-          alwaysShowChevrons
-          infiniteLoop
-        >
-          {filtredItems.map((item) => (
+
+      <div className="app__items">
+        <AliceCarousel
+          items={filtredItems.map((item) => (
             <Item item={item} key={item.id} />
           ))}
-        </ItemsCarousel>
+          responsive={{ 1024: { items: 4 } }}
+        />
       </div>
     </div>
   );
