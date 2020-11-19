@@ -9,10 +9,11 @@ import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 
 const ItemsContainer = ({ category }) => {
-  const [activeItemIndex, setActiveItemIndex] = useState(0);
   const items = ItemsData();
   const filtredItems = items
-    ? items.filter((item) => item.category === category)
+    ? items
+        .filter((item) => item.category === category)
+        .map((item) => <Item item={item} key={item.id} />)
     : [];
 
   return (
@@ -23,10 +24,13 @@ const ItemsContainer = ({ category }) => {
 
       <div className="app__items">
         <AliceCarousel
-          items={filtredItems.map((item) => (
-            <Item item={item} key={item.id} />
-          ))}
+          items={filtredItems}
           responsive={{ 1024: { items: 4 } }}
+          disableDotsControls
+          infinite
+          autoPlayInterval={2000}
+          paddingLeft={35}
+          paddingRight={35}
         />
       </div>
     </div>

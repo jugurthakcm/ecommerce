@@ -47,9 +47,13 @@ body {
   border: 1px solid white;
 }
 
-.app__items .sc-ifAKCX button {
-  height: 60%;
-  color: var(--green);
+.app__items .alice-carousel__next-btn-wrapper,
+.app__items .alice-carousel__prev-btn-wrapper {
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  height: 50%;
+  transform: translateY(-60%);
   font-weight: 600;
   font-size: 2rem;
   border-radius: 0.3rem;
@@ -58,19 +62,30 @@ body {
   box-shadow: 0 3px 6px 0 rgba(2, 51, 130, 0.08);
   background-color: white;
   cursor: pointer;
+  display: flex;
 }
 
-.app__items .sc-ifAKCX button:hover,
-.app__items .sc-ifAKCX button:active {
+.app__items .alice-carousel__prev-btn-wrapper {
+  left: 0px;
+  right: auto;
+}
+
+.app__items .alice-carousel__prev-btn-wrapper:hover,
+.app__items .alice-carousel__prev-btn-wrapper:active,
+.app__items .alice-carousel__next-btn-wrapper:hover,
+.app__items .alice-carousel__next-btn-wrapper:active {
   background-color: rgba(0, 68, 179, 0.03);
 }
 
-.app__items .kaHnvc {
-  margin-left: -10px;
-  cursor: auto;
+.app__items .alice-carousel__next-btn-item,
+.app__items .alice-carousel__prev-btn-item {
+  color: var(--green);
+  margin: auto;
 }
 
-.app__items .dFFQiB {
-  margin-right: -10px;
-  cursor: auto;
+.app__items .alice-carousel__next-btn-item:hover,
+.app__items .alice-carousel__prev-btn-item:hover,
+.app__items .alice-carousel__next-btn-item:active,
+.app__items .alice-carousel__prev-btn-item:active {
+  color: var(--green);
 }
