@@ -39,16 +39,33 @@
   margin-bottom: 1rem;
 }
 
+.cart__item a {
+  color: black;
+  text-decoration: none;
+}
+
+.cart__item a:hover,
+.cart__item a:active {
+  text-decoration: underline;
+}
+
+.cart__itemImg {
+  width: 70px;
+  overflow: hidden;
+  display: block;
+}
+
 .cart__item img {
   margin-top: 7px !important;
 }
 
-.cart__itemTitle p {
+.cart__itemTitle a {
   overflow: hidden !important;
   text-overflow: ellipsis !important;
   -webkit-line-clamp: 2 !important;
   line-height: 1.4rem !important;
   max-height: 2.8rem !important;
+  display: block;
 }
 
 .cart__itemRight {

@@ -27,6 +27,7 @@ const Product = (props) => {
       description: item.description,
       inStock,
       id: item.id,
+      category: item.category,
     };
     dispatch({
       item: itemSelected,

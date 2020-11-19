@@ -17,6 +17,7 @@ function Item({ item }) {
       description: item.description,
       inStock: inStock,
       id: item.id,
+      category: item.category,
     };
     dispatch({
       item: itemSelected,
@@ -34,7 +35,7 @@ function Item({ item }) {
         </Link>
       </div>
       <div className="item__title">
-        <Link to={`${categoryLink}/${item.id}`}>{item.title}</Link>
+        <Link to={`/${categoryLink}/${item.id}`}>{item.title}</Link>
       </div>
       <div className="item__buy">
         <p className="item__price">$ {item.price.toFixed(2)}</p>

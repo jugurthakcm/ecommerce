@@ -7,6 +7,7 @@ import { cartActions } from '../data/cartReducer';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import { Link } from 'react-router-dom';
 
 const CartItem = ({ item }) => {
   const dispatch = useCartContext()[1];
@@ -24,13 +25,17 @@ const CartItem = ({ item }) => {
     dispatch({ type: cartActions.CHANGE_QTY, item: { quantity, id: item.id } });
   };
 
+  const categoryLink = item.category.split(' ').join('_');
+
   return (
     <TableRow key={item.id} className="cart__item">
       <TableCell component="th" scope="row">
-        <img src={item.image} alt={item.title} height="70px" />
+        <Link className="cart__itemImg">
+          <img src={item.image} alt={item.title} height="70px" />
+        </Link>
       </TableCell>
       <TableCell align="left" className="cart__itemTitle">
-        <p>{item.title}</p>
+        <Link to={`/${categoryLink}/${item.id}`}>{item.title}</Link>
       </TableCell>
       <TableCell align="left">
         <FormControl variant="outlined">
