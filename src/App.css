@@ -44,7 +44,6 @@ body {
 .dot {
   background: var(--green) !important;
   box-shadow: none !important;
-  border: 1px solid white;
 }
 
 .app__items .alice-carousel__next-btn-wrapper,
@@ -57,12 +56,10 @@ body {
   font-weight: 600;
   font-size: 2rem;
   border-radius: 0.3rem;
-  padding: 0 5x;
-  border: 1px solid rgba(2, 51, 130, 0.08);
+  border: 1px solid rgba(104, 104, 104, 0.08);
   box-shadow: 0 3px 6px 0 rgba(2, 51, 130, 0.08);
   background-color: white;
   cursor: pointer;
-  display: flex;
 }
 
 .app__items .alice-carousel__prev-btn-wrapper {
@@ -74,13 +71,21 @@ body {
 .app__items .alice-carousel__prev-btn-wrapper:active,
 .app__items .alice-carousel__next-btn-wrapper:hover,
 .app__items .alice-carousel__next-btn-wrapper:active {
-  background-color: rgba(0, 68, 179, 0.03);
+  background-color: #ebe8e8;
 }
 
 .app__items .alice-carousel__next-btn-item,
 .app__items .alice-carousel__prev-btn-item {
   color: var(--green);
-  margin: auto;
+  height: 100%;
+}
+
+.app__items .alice-carousel__next-btn-item span,
+.app__items .alice-carousel__prev-btn-item span {
+  display: block;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .app__items .alice-carousel__next-btn-item:hover,

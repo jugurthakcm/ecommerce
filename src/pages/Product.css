@@ -26,6 +26,10 @@
   height: 300px;
 }
 
+.product .control-dots {
+  display: none;
+}
+
 .product__image {
   background-color: white;
   border-radius: 1rem;

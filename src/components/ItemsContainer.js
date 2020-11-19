@@ -1,7 +1,4 @@
-import React, { useState } from 'react';
-import ItemsCarousel from 'react-items-carousel';
-import NavigateNextRoundedIcon from '@material-ui/icons/NavigateNextRounded';
-import NavigateBeforeRoundedIcon from '@material-ui/icons/NavigateBeforeRounded';
+import React from 'react';
 import { ItemsData } from '../data/itemsData';
 import Item from './Item';
 import { capitalize } from '../util';
@@ -28,6 +25,7 @@ const ItemsContainer = ({ category }) => {
           responsive={{ 1024: { items: 4 } }}
           disableDotsControls
           infinite
+          autoPlay
           autoPlayInterval={2000}
           paddingLeft={35}
           paddingRight={35}

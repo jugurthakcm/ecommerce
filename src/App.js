@@ -27,7 +27,7 @@ function App() {
             showThumbs={false}
             showStatus={false}
             showArrows
-            stopOnHover={false}
+            stopOnHover={true}
           >
             <div>
               <img src={cream} alt="cream" />
