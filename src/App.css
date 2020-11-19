@@ -102,8 +102,6 @@ body {
   flex-direction: column;
   padding: 4rem 0;
   background-color: var(--green);
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
 }
 
 .app__newsletter h2 {

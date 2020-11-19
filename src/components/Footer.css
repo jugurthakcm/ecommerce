@@ -1,0 +1,33 @@
+.footer {
+  background-color: black;
+  color: white;
+  font-weight: 600;
+  padding: 3rem 0 1rem 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.footer__links {
+  width: 600px;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer__links a {
+  text-transform: uppercase;
+  color: white;
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+
+.footer__links a:active,
+.footer__links a:hover {
+  color: var(--green);
+}
+
+.footer__copyright p {
+  color: gray;
+  font-size: 0.8rem;
+}

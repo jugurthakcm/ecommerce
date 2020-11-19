@@ -10,6 +10,7 @@ import parfume from './assets/images/Parfume.jpg';
 import ItemsContainer from './components/ItemsContainer';
 import { filterCategories } from './util';
 import { ItemsData } from './data/itemsData';
+import Footer from './components/Footer';
 
 function App() {
   const itemsAPI = ItemsData();
@@ -41,22 +42,23 @@ function App() {
         </div>
         {categories &&
           categories.map((category) => <ItemsContainer category={category} />)}
-        <div className="app__newsletter">
-          <h2>Newsletter</h2>
-
-          <form className="app__newsletterForm">
-            <input
-              type="email"
-              placeholder="Enter your email adress here"
-              required
-            />
-            <button type="submit">
-              <span>SUBMIT</span>
-              <ArrowForwardIosRoundedIcon fontSize="small" />
-            </button>
-          </form>
-        </div>
       </div>
+      <div className="app__newsletter">
+        <h2>Newsletter</h2>
+
+        <form className="app__newsletterForm">
+          <input
+            type="email"
+            placeholder="Enter your email adress here"
+            required
+          />
+          <button type="submit">
+            <span>SUBMIT</span>
+            <ArrowForwardIosRoundedIcon fontSize="small" />
+          </button>
+        </form>
+      </div>
+      <Footer />
     </div>
   );
 }
