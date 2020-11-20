@@ -1,10 +1,10 @@
 import React from 'react';
 import './Footer.css';
 
-const Footer = () => {
+const Footer = ({ marginTop }) => {
   const date = new Date();
   return (
-    <div className="footer">
+    <div className="footer" style={{ marginTop: marginTop }}>
       <div className="footer__links">
         <a href="/">About</a>
         <a href="/">Store locator</a>

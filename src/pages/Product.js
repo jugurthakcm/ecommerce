@@ -9,6 +9,7 @@ import { ItemsData } from '../data/itemsData';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 import { formatPrice } from '../util';
+import Footer from '../components/Footer';
 
 const Product = (props) => {
   const productId = props.match.params.product_id;
@@ -104,6 +105,7 @@ const Product = (props) => {
           </div>
         </div>
       )}
+      <Footer marginTop={20} />
     </>
   );
 };
