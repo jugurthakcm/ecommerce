@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useCartContext } from '../data/CartProvider';
 import { cartActions } from '../data/cartReducer';
+import { formatPrice } from '../util';
 import './Item.css';
 
 function Item({ item }) {
@@ -49,7 +50,7 @@ function Item({ item }) {
         <Link to={`/${categoryLink}/${item.id}`}>{item.title}</Link>
       </div>
       <div className="item__buy">
-        <p className="item__price">$ {item.price.toFixed(2)}</p>
+        <p className="item__price">$ {formatPrice(item.price)}</p>
         <button className="item__buyBtn" onClick={handleClick}>
           Add to Cart
         </button>

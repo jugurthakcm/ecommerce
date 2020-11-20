@@ -8,6 +8,7 @@ import TextField from '@material-ui/core/TextField';
 import { ItemsData } from '../data/itemsData';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
+import { formatPrice } from '../util';
 
 const Product = (props) => {
   const productId = props.match.params.product_id;
@@ -72,7 +73,8 @@ const Product = (props) => {
             </div>
 
             <p className="product__infoPrice">
-              <sup style={{ fontSize: '1rem' }}>$</sup> {item.price}
+              <sup style={{ fontSize: '1rem' }}>$</sup>{' '}
+              {formatPrice(item.price)}
             </p>
 
             <p className="product__infoStock">Left in stock : {inStock}</p>

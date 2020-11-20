@@ -51,12 +51,13 @@
 
 .cart__itemImg {
   width: 70px;
-  overflow: hidden;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .cart__item img {
-  margin-top: 7px !important;
+  margin: 7px auto;
 }
 
 .cart__itemTitle a {

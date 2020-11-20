@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -8,9 +8,12 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { Link } from 'react-router-dom';
+import { formatPrice } from '../util';
 
 const CartItem = ({ item }) => {
   const dispatch = useCartContext()[1];
+  const imgItem = useRef();
+
   const handleDeleteItem = () => {
     dispatch({ type: cartActions.DELETE_ITEM, deletedItem: item.id });
   };
@@ -25,13 +28,23 @@ const CartItem = ({ item }) => {
     dispatch({ type: cartActions.CHANGE_QTY, item: { quantity, id: item.id } });
   };
 
+  useEffect(() => {
+    const { naturalWidth, naturalHeight } = imgItem.current;
+    if (naturalHeight > naturalWidth) {
+      imgItem.current.height = 70;
+    }
+    if (naturalWidth > naturalHeight) {
+      imgItem.current.width = 70;
+    }
+  }, []);
+
   const categoryLink = item.category.split(' ').join('_');
 
   return (
     <TableRow key={item.id} className="cart__item">
       <TableCell component="th" scope="row">
         <Link className="cart__itemImg">
-          <img src={item.image} alt={item.title} height="70px" />
+          <img src={item.image} alt={item.title} ref={imgItem} />
         </Link>
       </TableCell>
       <TableCell align="left" className="cart__itemTitle">
@@ -52,8 +65,10 @@ const CartItem = ({ item }) => {
           </Select>
         </FormControl>
       </TableCell>
-      <TableCell align="left">{item.price.toFixed(2)}</TableCell>
-      <TableCell align="left">{item.price * item.quantity}</TableCell>
+      <TableCell align="left">{formatPrice(item.price)}</TableCell>
+      <TableCell align="left">
+        {formatPrice(item.price * item.quantity)}
+      </TableCell>
       <TableCell padding="checkbox">
         <DeleteIcon className="cart__deleteIcon" onClick={handleDeleteItem} />
       </TableCell>

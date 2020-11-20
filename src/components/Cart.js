@@ -10,6 +10,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Alert from '@material-ui/lab/Alert';
 import CartItem from './CartItem';
+import { formatPrice } from '../util';
 
 const Cart = () => {
   const items = useCartContext()[0];
@@ -60,7 +61,7 @@ const Cart = () => {
       {cart}
       <div className="cart__actions">
         <button className="cart__actionsCheckout" disabled={disableBtn}>
-          Checkout ($ {total.toFixed(2)})
+          Checkout ($ {formatPrice(total)})
         </button>
       </div>
     </div>

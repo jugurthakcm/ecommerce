@@ -41,7 +41,9 @@ function App() {
           </Carousel>
         </div>
         {categories ? (
-          categories.map((category) => <ItemsContainer category={category} />)
+          categories.map((category) => (
+            <ItemsContainer key={category} category={category} />
+          ))
         ) : (
           <div className="page__loading"></div>
         )}
