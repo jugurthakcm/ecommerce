@@ -12,6 +12,11 @@ const ItemsContainer = ({ category }) => {
         .map((item) => <Item item={item} key={item.id} />)
     : [];
 
+  const responsive = {
+    992: { items: 4 },
+    768: { items: 3 },
+    576: { items: 2 },
+  };
   return (
     <div className="app__itemsContainer">
       <div className="app__itemsHeader">
@@ -21,7 +26,7 @@ const ItemsContainer = ({ category }) => {
       <div className="app__items">
         <AliceCarousel
           items={filtredItems}
-          responsive={{ 1024: { items: 4 } }}
+          responsive={responsive}
           disableDotsControls
           infinite
           autoPlay

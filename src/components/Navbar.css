@@ -7,8 +7,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-direction: column;
   background-color: white;
   margin-bottom: 2rem;
+}
+
+.navbar__up {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navbar h1 a {
@@ -24,6 +32,7 @@
 .navbar__right {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
 }
 
 .navbar__rightSearch {
@@ -39,7 +48,7 @@
 }
 
 .navbar__rightSearch:focus-within {
-  width: 400px;
+  width: 300px;
 }
 
 .navbar__rightSearch input {
@@ -60,7 +69,85 @@
   color: gray;
 }
 
+.navbar__responsiveSearch {
+  display: none;
+  align-items: center;
+  background-color: var(--gray);
+  border-radius: 0.6rem;
+  padding: 0.6rem 1rem;
+  width: 90%;
+  position: relative;
+  overflow: hidden;
+  margin-top: 0.7rem;
+}
+
+.navbar__responsiveSearch input {
+  border: none;
+  background-color: var(--gray);
+  border-radius: 1rem;
+  width: 98%;
+  padding-left: 1rem;
+}
+
+.navbar__responsiveSearch input::placeholder {
+  color: gray;
+}
+
+.navbar__responsiveSearch .MuiSvgIcon-root {
+  position: absolute;
+  left: 7px;
+  color: gray;
+}
+
 .navbar__rightAccount {
   margin: 0 1rem;
   cursor: pointer;
+}
+
+.showSearchBar {
+  display: block;
+}
+
+/* Media Query */
+@media (min-width: 610px) {
+  .showSearchBar {
+    display: none;
+  }
+}
+
+@media (max-width: 992px) {
+  .navbar {
+    padding: 20px 2rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .navbar__rightSearch:focus-within {
+    width: 100%;
+  }
+}
+
+@media (max-width: 610px) {
+  .navbar__rightSearch {
+    display: block;
+    background-color: white;
+    border-radius: none;
+    padding: 0;
+    width: 100%;
+    overflow: unset;
+    cursor: pointer;
+  }
+  .navbar__rightSearch input {
+    display: none;
+  }
+  .navbar__rightSearch .MuiSvgIcon-root {
+    color: black;
+    position: relative;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar {
+    padding: 20px 1rem;
+  }
 }
