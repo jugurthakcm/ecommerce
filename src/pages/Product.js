@@ -48,10 +48,11 @@ const Product = (props) => {
       setItemQuantity('');
     }
   };
+  window.scrollTo(0, 0);
   return (
     <>
       <Navbar />
-      {item && (
+      {item ? (
         <div className="product">
           <div className="product__image">
             <Carousel>
@@ -104,6 +105,8 @@ const Product = (props) => {
             </button>
           </div>
         </div>
+      ) : (
+        <div className="page__loading"></div>
       )}
       <Footer marginTop={20} />
     </>
