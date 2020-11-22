@@ -10,7 +10,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 import { formatPrice } from '../util';
 import Footer from '../components/Footer';
-import Skeleton from 'react-loading-skeleton';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const Product = (props) => {
   const productId = props.match.params.product_id;
@@ -107,7 +107,9 @@ const Product = (props) => {
           </div>
         </div>
       ) : (
-        <div className="page__loading"></div>
+        <div className="page__loading">
+          <CircularProgress size={50} />
+        </div>
       )}
       <Footer marginTop={20} />
     </>

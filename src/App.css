@@ -154,6 +154,14 @@ body {
 .page__loading {
   height: 100vh;
   width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page__loading .MuiCircularProgress-colorPrimary {
+  color: var(--green);
+  margin-bottom: 25vh;
 }
 
 .item__loading {
