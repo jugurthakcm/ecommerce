@@ -186,6 +186,9 @@ body {
 }
 
 @media (max-width: 420px) {
+  .app__newsletter {
+    padding: 2rem 0;
+  }
   .app__newsletterForm {
     flex-direction: column;
   }
