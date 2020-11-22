@@ -25,6 +25,7 @@ const ItemsContainer = ({ category }) => {
           <Skeleton height={400} />
         </div>,
       ];
+  const autoPlay = filtredItems ? true : false;
 
   const responsive = {
     992: { items: 4 },
@@ -43,10 +44,8 @@ const ItemsContainer = ({ category }) => {
           responsive={responsive}
           disableDotsControls
           infinite
-          autoPlay
+          autoPlay={autoPlay}
           autoPlayInterval={2000}
-          paddingLeft={35}
-          paddingRight={35}
         />
       </div>
     </div>

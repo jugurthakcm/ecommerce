@@ -49,6 +49,10 @@ body {
   box-shadow: none !important;
 }
 
+.app .alice-carousel > div:first-of-type {
+  margin: auto 35px;
+}
+
 .app__items .alice-carousel__next-btn-wrapper,
 .app__items .alice-carousel__prev-btn-wrapper {
   position: absolute;
@@ -175,11 +179,17 @@ body {
   }
 }
 
-@media (max-width: 768px) {
-}
-
 @media (max-width: 576px) {
   .app__container {
     padding: 0 1rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .app__newsletterForm {
+    flex-direction: column;
+  }
+  .app__newsletterForm button {
+    margin-top: 0.5rem;
   }
 }
