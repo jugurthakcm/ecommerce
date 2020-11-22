@@ -11,10 +11,8 @@
 }
 .item__img {
   border-radius: 1.5rem;
-  padding: 0 1rem;
   margin-bottom: 0.5rem;
   height: 250px;
-  overflow: hidden;
 }
 
 .item__img img {
