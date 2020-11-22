@@ -168,3 +168,9 @@
 .cart__itemQtyValue {
   font-size: 0.85rem !important;
 }
+
+@media (max-width: 600px) {
+  .cart {
+    width: 96vw;
+  }
+}

@@ -66,9 +66,11 @@ const CartItem = ({ item }) => {
         </FormControl>
       </TableCell>
       <TableCell align="left">{formatPrice(item.price)}</TableCell>
-      <TableCell align="left">
-        {formatPrice(item.price * item.quantity)}
-      </TableCell>
+      {window.innerWidth > 490 && (
+        <TableCell align="left">
+          {formatPrice(item.price * item.quantity)}
+        </TableCell>
+      )}
       <TableCell padding="checkbox">
         <DeleteIcon className="cart__deleteIcon" onClick={handleDeleteItem} />
       </TableCell>

@@ -32,8 +32,10 @@ const Cart = () => {
             <TableCell>Image</TableCell>
             <TableCell align="left">Product</TableCell>
             <TableCell align="left">Quantity</TableCell>
-            <TableCell align="left">Price ($)</TableCell>
-            <TableCell align="left">Total ($)</TableCell>
+            <TableCell align="left">Price($)</TableCell>
+            {window.innerWidth > 490 && (
+              <TableCell align="left">Total($)</TableCell>
+            )}
             <TableCell></TableCell>
           </TableRow>
         </TableHead>
