@@ -35,6 +35,7 @@ function Item({ item }) {
           <img src={item.image} alt={item.title} />
         </Link>
       </div>
+
       <div className="item__title">
         <Link to={`/${categoryLink}/${item.id}`}>{item.title}</Link>
       </div>

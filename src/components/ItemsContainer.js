@@ -3,6 +3,7 @@ import { ItemsData } from '../data/itemsData';
 import Item from './Item';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
+import Skeleton from 'react-loading-skeleton';
 
 const ItemsContainer = ({ category }) => {
   const items = ItemsData();
@@ -10,7 +11,20 @@ const ItemsContainer = ({ category }) => {
     ? items
         .filter((item) => item.category === category)
         .map((item) => <Item item={item} key={item.id} />)
-    : [];
+    : [
+        <div className="item__loading">
+          <Skeleton height={400} />
+        </div>,
+        <div className="item__loading">
+          <Skeleton height={400} />
+        </div>,
+        <div className="item__loading">
+          <Skeleton height={400} />
+        </div>,
+        <div className="item__loading">
+          <Skeleton height={400} />
+        </div>,
+      ];
 
   const responsive = {
     992: { items: 4 },

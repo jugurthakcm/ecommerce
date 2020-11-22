@@ -10,6 +10,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 import { formatPrice } from '../util';
 import Footer from '../components/Footer';
+import Skeleton from 'react-loading-skeleton';
 
 const Product = (props) => {
   const productId = props.match.params.product_id;

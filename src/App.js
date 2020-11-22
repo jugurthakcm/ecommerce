@@ -23,7 +23,7 @@ function App() {
           <Carousel
             autoPlay
             infiniteLoop
-            interval={2000}
+            interval={3000}
             showThumbs={false}
             showStatus={false}
             showArrows
