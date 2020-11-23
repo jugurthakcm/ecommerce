@@ -78,3 +78,8 @@
   background-color: var(--green);
   color: white;
 }
+
+.item__outOfStock {
+  color: red;
+  font-weight: 500;
+}

@@ -41,9 +41,13 @@ function Item({ item }) {
       </div>
       <div className="item__buy">
         <p className="item__price">$ {formatPrice(item.price)}</p>
-        <button className="item__buyBtn" onClick={handleClick}>
-          Add to Cart
-        </button>
+        {inStock !== 0 ? (
+          <button className="item__buyBtn" onClick={handleClick}>
+            Add to Cart
+          </button>
+        ) : (
+          <p className="item__outOfStock">Out of stock</p>
+        )}
       </div>
     </div>
   );
