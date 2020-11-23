@@ -18,8 +18,13 @@ export const cartReducer = (state = initialCart, action) => {
 
       if (index !== null) {
         const el = state[index];
+        const totalQty = el.quantity + action.item.quantity;
+        const { inStock } = action.item;
         Object.assign(el, {
-          quantity: el.quantity + action.item.quantity,
+          quantity:
+            totalQty <= inStock
+              ? el.quantity + action.item.quantity
+              : el.quantity,
         });
         return [...state];
       } else {
