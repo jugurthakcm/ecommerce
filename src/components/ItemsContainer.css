@@ -1,4 +1,4 @@
-.items {
+.itemsContainer {
   display: grid;
   grid-template-columns: 200px 1fr;
 }
@@ -30,7 +30,31 @@
   color: black;
 }
 
-.items__perCategory {
+.items {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+}
+
+.items__perCategory {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.items__loadMore {
+  background-color: var(--green);
+  padding: 10px 2rem;
+  border: none;
+  border-radius: 0.6rem;
+  color: white;
+  font-weight: 500;
+  margin: 10px auto;
+  border: 2px solid var(--green);
+  cursor: pointer;
+}
+
+.items__loadMore:hover,
+.items__loadMore:active {
+  color: var(--green);
+  background-color: white;
 }

@@ -21,7 +21,7 @@ const ItemsContainer = () => {
   };
 
   return (
-    <div className="items">
+    <div className="itemsContainer">
       <div className="items__categories">
         <h4>Categories</h4>
         <ul>
@@ -33,7 +33,10 @@ const ItemsContainer = () => {
             ))}
         </ul>
       </div>
-      <div className="items__perCategory">{filtredItems}</div>
+      <div className="items__perCategory">
+        <div className="items">{filtredItems}</div>
+        <button className="items__loadMore">Load more...</button>
+      </div>
     </div>
   );
 };

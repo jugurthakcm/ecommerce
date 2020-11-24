@@ -8,7 +8,7 @@
   box-shadow: -5px 0 10px rgba(0, 0, 0, 0.2);
   z-index: 999;
   padding: 0.5rem;
-  transition: right 1s ease;
+  transition: right 0.3s;
 }
 
 .cart__header {
