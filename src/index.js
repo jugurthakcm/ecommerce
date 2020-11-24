@@ -6,19 +6,17 @@ import { CartProvider } from './data/CartProvider';
 import { initialCart, cartReducer } from './data/cartReducer';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Product from './pages/Product';
-import Cart from './components/Cart';
-import CartPage from './pages/Cart';
+import Cart from './pages/Cart';
 
 ReactDOM.render(
   <BrowserRouter>
     <CartProvider initialCart={initialCart} cartReducer={cartReducer}>
-      <Cart />
       <Switch>
         <Route exact path="/">
           <App />
         </Route>
         <Route path="/:category/:product_id" component={Product} />
-        <Route path="/cart" component={CartPage} />
+        <Route path="/cart" component={Cart} />
       </Switch>
     </CartProvider>
   </BrowserRouter>,

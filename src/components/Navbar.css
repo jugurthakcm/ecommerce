@@ -3,7 +3,7 @@
   top: 0;
   z-index: 99;
   box-shadow: 0 2px 7px rgba(0, 0, 0, 0.15);
-  padding: 20px 4rem;
+  padding: 15px 4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -27,6 +27,8 @@
 .navbar__ShoppingIcon {
   font-size: 30px !important;
   cursor: pointer;
+  color: black !important;
+  margin-bottom: 2px;
 }
 
 .navbar__right {

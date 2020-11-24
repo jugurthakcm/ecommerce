@@ -1,29 +1,33 @@
 import React from 'react';
-import CartItemPage from '../components/CartItemPage';
+import CartItem from '../components/CartItem';
 import { useCartContext } from '../data/CartProvider';
 import { Link } from 'react-router-dom';
 import './Cart.css';
+import { formatPrice } from '../util';
 
-const CartPage = () => {
+const Cart = () => {
   const items = useCartContext()[0];
-  console.log(items);
+  const total = items
+    .map((item) => item.price * item.quantity)
+    .reduce((sum, i) => sum + i, 0);
   return (
-    <div className="cartPage">
-      <div className="cartPage__header">
-        <Link to="/">Your Shopping Cart</Link>
+    <div className="cart">
+      <div className="cart__header">
+        <h2>Your Shopping Cart</h2>
+        <Link to="/">Go back home</Link>
       </div>
-      <div className="cartPage__content">
-        <div className="cartPage__contentItems">
+      <div className="cart__content">
+        <div className="cart__contentItems">
           {items !== [] ? (
-            items.map((item) => <CartItemPage item={item} />)
+            items.map((item) => <CartItem item={item} />)
           ) : (
             <p>Your cart is empty</p>
           )}
         </div>
-        <div className="cartPage__contentCheckout">
-          <div className="cartPage__contentCheckoutTotal">
+        <div className="cart__contentCheckout">
+          <div className="cart__contentCheckoutTotal">
             <h3>Subtotal : </h3>
-            <p>$ 1200</p>
+            <p>$ {formatPrice(total)}</p>
           </div>
           <button>Checkout</button>
         </div>
@@ -32,4 +36,4 @@ const CartPage = () => {
   );
 };
 
-export default CartPage;
+export default Cart;

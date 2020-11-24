@@ -9,11 +9,7 @@ import SearchIcon from '@material-ui/icons/Search';
 
 const Navbar = () => {
   const items = useCartContext()[0];
-  const handleCartOpen = () => {
-    const cart = document.getElementsByClassName('cart')[0];
-    cart.classList.remove('cart__closed');
-    cart.classList.add('cart__open');
-  };
+
   const searchBar = useRef();
   const handleShowSearchBar = () => {
     if (window.innerWidth <= 610) {
@@ -34,14 +30,14 @@ const Navbar = () => {
           <span className="navbar__rightAccount">
             <PersonOutlineOutlinedIcon fontSize="large" />
           </span>
-          <Badge badgeContent={items.length} color="secondary">
-            <ShoppingCartOutlinedIcon
-              className="navbar__ShoppingIcon"
-              variant="contained"
-              onClick={handleCartOpen}
-            />
-          </Badge>
-          <Link to="/cart">Cart</Link>
+          <Link to="/cart" className="navbar__ShoppingIcon">
+            <Badge badgeContent={items.length} color="secondary">
+              <ShoppingCartOutlinedIcon
+                variant="contained"
+                className="navbar__ShoppingIcon"
+              />
+            </Badge>
+          </Link>
         </div>
       </div>
       <div className="navbar__responsiveSearch" ref={searchBar}>
