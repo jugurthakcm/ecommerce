@@ -7,7 +7,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import cream from './assets/images/Cream.jpg';
 import food from './assets/images/Food.jpg';
 import parfume from './assets/images/Parfume.jpg';
-import ItemsContainer from './components/ItemsContainer';
+import TrendingItems from './components/TrendingItems';
 import { filterCategories } from './util';
 import { ItemsData } from './data/itemsData';
 import Footer from './components/Footer';
@@ -40,13 +40,10 @@ function App() {
             </div>
           </Carousel>
         </div>
-        {categories ? (
-          categories.map((category) => (
-            <ItemsContainer key={category} category={category} />
-          ))
-        ) : (
-          <div className="page__loading"></div>
-        )}
+        <div className="app__trendingItems">
+          <h2 className="app__subTitle">Trending items</h2>
+          <TrendingItems />
+        </div>
       </div>
       <div className="app__newsletter">
         <h2>Newsletter</h2>

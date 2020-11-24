@@ -20,14 +20,14 @@ body {
   padding: 0 4rem;
 }
 
-.app__itemsHeader {
+.app__subTitle {
   margin: 2.5rem 0 1.5rem 0;
 }
-.app__itemsHeader h2 {
+.app__subTitle {
   text-transform: capitalize;
 }
 
-.app__itemsHeader h2::after {
+.app__subTitle::after {
   content: '';
   display: block;
   width: 3rem;
@@ -40,8 +40,8 @@ body {
 }
 
 .app__carousel img {
-  height: 400px;
-  object-fit: cover;
+  width: 100%;
+  object-fit: contain;
 }
 
 .dot {
@@ -53,8 +53,8 @@ body {
   margin: auto 35px;
 }
 
-.app__items .alice-carousel__next-btn-wrapper,
-.app__items .alice-carousel__prev-btn-wrapper {
+.trendingItems .alice-carousel__next-btn-wrapper,
+.trendingItems .alice-carousel__prev-btn-wrapper {
   position: absolute;
   top: 50%;
   right: 0px;
@@ -69,36 +69,36 @@ body {
   cursor: pointer;
 }
 
-.app__items .alice-carousel__prev-btn-wrapper {
+.trendingItems .alice-carousel__prev-btn-wrapper {
   left: 0px;
   right: auto;
 }
 
-.app__items .alice-carousel__prev-btn-wrapper:hover,
-.app__items .alice-carousel__prev-btn-wrapper:active,
-.app__items .alice-carousel__next-btn-wrapper:hover,
-.app__items .alice-carousel__next-btn-wrapper:active {
+.trendingItems .alice-carousel__prev-btn-wrapper:hover,
+.trendingItems .alice-carousel__prev-btn-wrapper:active,
+.trendingItems .alice-carousel__next-btn-wrapper:hover,
+.trendingItems .alice-carousel__next-btn-wrapper:active {
   background-color: #ebe8e8;
 }
 
-.app__items .alice-carousel__next-btn-item,
-.app__items .alice-carousel__prev-btn-item {
+.trendingItems .alice-carousel__next-btn-item,
+.trendingItems .alice-carousel__prev-btn-item {
   color: var(--green);
   height: 100%;
 }
 
-.app__items .alice-carousel__next-btn-item span,
-.app__items .alice-carousel__prev-btn-item span {
+.trendingItems .alice-carousel__next-btn-item span,
+.trendingItems .alice-carousel__prev-btn-item span {
   display: block;
   position: relative;
   top: 50%;
   transform: translateY(-50%);
 }
 
-.app__items .alice-carousel__next-btn-item:hover,
-.app__items .alice-carousel__prev-btn-item:hover,
-.app__items .alice-carousel__next-btn-item:active,
-.app__items .alice-carousel__prev-btn-item:active {
+.trendingItems .alice-carousel__next-btn-item:hover,
+.trendingItems .alice-carousel__prev-btn-item:hover,
+.trendingItems .alice-carousel__next-btn-item:active,
+.trendingItems .alice-carousel__prev-btn-item:active {
   color: var(--green);
 }
 
