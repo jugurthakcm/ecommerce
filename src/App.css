@@ -193,6 +193,21 @@ body {
   }
 }
 
+@media (max-width: 539px) {
+  .app__subTitle {
+    text-align: left;
+  }
+  .app__subTitle::after {
+    display: block;
+    margin-left: 0;
+    margin-top: 5px;
+  }
+
+  .app__subTitle::before {
+    display: none;
+  }
+}
+
 @media (max-width: 420px) {
   .app__newsletter {
     padding: 2rem 0;
