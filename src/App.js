@@ -11,6 +11,7 @@ import TrendingItems from './components/TrendingItems';
 import { filterCategories } from './util';
 import { ItemsData } from './data/itemsData';
 import Footer from './components/Footer';
+import DailyItems from './components/DailyItems';
 
 function App() {
   const itemsAPI = ItemsData();
@@ -41,8 +42,10 @@ function App() {
           </Carousel>
         </div>
         <div className="app__trendingItems">
-          <h2 className="app__subTitle">Trending items</h2>
           <TrendingItems />
+        </div>
+        <div className="app__dailyItems">
+          <DailyItems />
         </div>
       </div>
       <div className="app__newsletter">

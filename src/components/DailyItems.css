@@ -1,0 +1,40 @@
+.dailyItems {
+  display: grid;
+  width: 100%;
+  height: 700px;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.dailyItems__item1 {
+  background-color: blue;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+.dailyItems__item2 {
+  background-color: green;
+}
+.dailyItems__item3 {
+  background-color: red;
+}
+
+@media (max-width: 576px) {
+  .dailyItems {
+    height: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+  }
+  .dailyItems__item1 {
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .dailyItems {
+    height: 500px;
+  }
+}
+
+@media (max-width: 992px) {
+}
