@@ -8,14 +8,11 @@ import cream from './assets/images/Cream.jpg';
 import food from './assets/images/Food.jpg';
 import parfume from './assets/images/Parfume.jpg';
 import TrendingItems from './components/TrendingItems';
-import { filterCategories } from './util';
-import { ItemsData } from './data/itemsData';
 import Footer from './components/Footer';
-import DailyItems from './components/DailyItems';
+import BestSelling from './components/BestSelling';
+import ItemsContainer from './components/ItemsContainer';
 
 function App() {
-  const itemsAPI = ItemsData();
-  const categories = itemsAPI ? filterCategories(itemsAPI) : null;
   return (
     <div className="app">
       <Navbar />
@@ -41,16 +38,25 @@ function App() {
             </div>
           </Carousel>
         </div>
+
         <div className="app__trendingItems">
+          <h2 className="app__subTitle">Trending Products</h2>
           <TrendingItems />
         </div>
+
         <div className="app__dailyItems">
-          <DailyItems />
+          <h2 className="app__subTitle">Best Selling</h2>
+          <BestSelling />
+        </div>
+
+        <div className="app__items">
+          <h2 className="app__subTitle">Discover Our Products</h2>
+          <ItemsContainer />
         </div>
       </div>
+
       <div className="app__newsletter">
         <h2>Newsletter</h2>
-
         <form className="app__newsletterForm">
           <input
             type="email"
@@ -63,6 +69,7 @@ function App() {
           </button>
         </form>
       </div>
+
       <Footer />
     </div>
   );

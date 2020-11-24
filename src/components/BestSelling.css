@@ -1,4 +1,4 @@
-.dailyItems {
+.bestSelling {
   display: grid;
   width: 100%;
   height: 700px;
@@ -6,25 +6,25 @@
   grid-template-rows: 1fr 1fr;
 }
 
-.dailyItems__item1 {
+.bestSelling__item1 {
   background-color: blue;
   grid-row-start: 1;
   grid-row-end: 3;
 }
-.dailyItems__item2 {
+.bestSelling__item2 {
   background-color: green;
 }
-.dailyItems__item3 {
+.bestSelling__item3 {
   background-color: red;
 }
 
 @media (max-width: 576px) {
-  .dailyItems {
+  .bestSelling {
     height: 100%;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, 1fr);
   }
-  .dailyItems__item1 {
+  .bestSelling__item1 {
     grid-row-start: 1;
     grid-row-end: 2;
   }

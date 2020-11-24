@@ -1,0 +1,36 @@
+.items {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+}
+
+.items__categories {
+  width: 300px;
+}
+
+.items__categories h4 {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.items__categories ul {
+  list-style: none;
+}
+
+.items__categories li {
+  margin-bottom: 1rem;
+  text-transform: capitalize;
+  font-size: 0.95rem;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: 500;
+}
+
+.items__categories li:hover,
+.items__categories li:active {
+  color: black;
+}
+
+.items__perCategory {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}

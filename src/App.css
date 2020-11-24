@@ -21,18 +21,26 @@ body {
 }
 
 .app__subTitle {
-  margin: 2.5rem 0 1.5rem 0;
-}
-.app__subTitle {
   text-transform: capitalize;
+  text-align: center;
+  margin: 2.5rem 0 1.5rem 0;
 }
 
 .app__subTitle::after {
   content: '';
-  display: block;
-  width: 3rem;
+  display: inline-block;
+  width: 100px;
   height: 5px;
   background-color: var(--green);
+  margin-left: 10px;
+}
+.app__subTitle::before {
+  content: '';
+  display: inline-block;
+  width: 100px;
+  height: 5px;
+  background-color: var(--green);
+  margin-right: 10px;
 }
 
 .app__carousel .carousel {
