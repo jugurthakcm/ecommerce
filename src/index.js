@@ -7,6 +7,7 @@ import { initialCart, cartReducer } from './data/cartReducer';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Product from './pages/Product';
 import Cart from './components/Cart';
+import CartPage from './pages/Cart';
 
 ReactDOM.render(
   <BrowserRouter>
@@ -17,6 +18,7 @@ ReactDOM.render(
           <App />
         </Route>
         <Route path="/:category/:product_id" component={Product} />
+        <Route path="/cart" component={CartPage} />
       </Switch>
     </CartProvider>
   </BrowserRouter>,

@@ -41,6 +41,7 @@ const Navbar = () => {
               onClick={handleCartOpen}
             />
           </Badge>
+          <Link to="/cart">Cart</Link>
         </div>
       </div>
       <div className="navbar__responsiveSearch" ref={searchBar}>
