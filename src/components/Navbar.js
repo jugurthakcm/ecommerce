@@ -28,7 +28,9 @@ const Navbar = () => {
             <input placeholder="Search ..." />
           </span>
           <span className="navbar__rightAccount">
-            <PersonOutlineOutlinedIcon fontSize="large" />
+            <Link to="/login" className="navbar__authIcon">
+              <PersonOutlineOutlinedIcon fontSize="large" />
+            </Link>
           </span>
           <Link to="/cart" className="navbar__ShoppingIcon">
             <Badge badgeContent={items.length} color="secondary">

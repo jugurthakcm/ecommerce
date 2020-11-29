@@ -9,7 +9,6 @@
   align-items: center;
   flex-direction: column;
   background-color: white;
-  margin-bottom: 2rem;
 }
 
 .navbar__up {
@@ -24,11 +23,16 @@
   text-decoration: none;
 }
 
-.navbar__ShoppingIcon {
+.navbar__ShoppingIcon,
+.navbar__authIcon {
   font-size: 30px !important;
   cursor: pointer;
   color: black !important;
-  margin-bottom: 2px;
+  margin-bottom: 5px;
+}
+
+.navbar__authIcon {
+  margin-bottom: 0 !important;
 }
 
 .navbar__right {

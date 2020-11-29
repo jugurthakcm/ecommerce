@@ -1,0 +1,104 @@
+.login {
+  background-color: var(--green);
+  width: 100vw;
+  z-index: -1;
+  padding: 3rem 0;
+}
+
+.login__box {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  background-color: white;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  margin: auto;
+  color: gray;
+  font-weight: 500;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.login__title {
+  text-align: center;
+  margin-bottom: 4rem;
+  color: var(--green);
+  letter-spacing: 2px;
+  font-size: 2rem;
+}
+
+.login__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login__formInput {
+  background-color: var(--gray);
+  border: none;
+  padding: 0.6rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+}
+
+.login__formInput .MuiSvgIcon-root {
+  opacity: 0.5;
+}
+
+.login__formInput input {
+  border: none;
+  background-color: inherit;
+  width: 100%;
+  margin-left: 8px;
+}
+
+.login__form input::placeholder {
+  opacity: 0.3;
+}
+
+.login__rememberMe {
+  display: flex;
+  align-items: center;
+}
+
+.login__rememberMe span {
+  margin-left: 5px;
+  font-size: 0.85rem;
+}
+
+.login__formFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.login__formFooter a {
+  font-size: 0.9rem;
+  color: gray;
+}
+
+.login__formFooter button {
+  background-color: var(--green);
+  border: none;
+  padding: 0.6rem 1.3rem;
+  color: white;
+  border-radius: 7px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.login__boxFooter {
+  border-top: 1px solid lightgray;
+  font-size: 0.8rem;
+  text-align: center;
+  padding-top: 1rem;
+}
+
+.login__boxFooter a {
+  color: var(--green);
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 5px;
+}

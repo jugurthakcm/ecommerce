@@ -43,6 +43,10 @@ body {
   margin-right: 10px;
 }
 
+.app__carousel {
+  margin-top: 2rem;
+}
+
 .app__carousel .carousel {
   border-radius: 1rem;
 }
