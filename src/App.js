@@ -44,7 +44,7 @@ function App() {
           <TrendingItems />
         </div>
 
-        <div className="app__dailyItems">
+        <div className="app__bestSellingItems">
           <h2 className="app__subTitle">Best Selling</h2>
           <BestSelling />
         </div>
