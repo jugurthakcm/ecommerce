@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import Badge from '@material-ui/core/Badge';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
-import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
+import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import { useCartContext } from '../data/CartProvider';
@@ -29,7 +29,7 @@ const Navbar = () => {
           </span>
           <span className="navbar__rightAccount">
             <Link to="/login" className="navbar__authIcon">
-              <PersonOutlineOutlinedIcon fontSize="large" />
+              <AccountCircleOutlinedIcon fontSize="large" />
             </Link>
           </span>
           <Link to="/cart" className="navbar__ShoppingIcon">
