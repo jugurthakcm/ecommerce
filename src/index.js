@@ -8,6 +8,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Product from './pages/Product';
 import Cart from './pages/Cart';
 import Login from './pages/Login';
+import Register from './pages/Register';
 
 ReactDOM.render(
   <BrowserRouter>
@@ -19,6 +20,7 @@ ReactDOM.render(
         <Route path="/:category/:product_id" component={Product} />
         <Route path="/cart" component={Cart} />
         <Route path="/login" component={Login} />
+        <Route path="/register" component={Register} />
       </Switch>
     </CartProvider>
   </BrowserRouter>,

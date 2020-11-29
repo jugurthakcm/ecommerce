@@ -1,0 +1,98 @@
+.register {
+  background-color: var(--green);
+  width: 100vw;
+  z-index: -1;
+  padding: 2rem 0;
+}
+
+.register__box {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  background-color: white;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  margin: auto;
+  color: gray;
+  font-weight: 500;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.register__title {
+  text-align: center;
+  margin-bottom: 4rem;
+  color: var(--green);
+  letter-spacing: 2px;
+  font-size: 2rem;
+}
+
+.register__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.register__formInput {
+  background-color: var(--gray);
+  border: none;
+  padding: 0.6rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+}
+
+.register__formInput .MuiSvgIcon-root {
+  opacity: 0.5;
+}
+
+.register__formInput input {
+  border: none;
+  background-color: inherit;
+  width: 100%;
+  margin-left: 8px;
+}
+
+.register__form input::placeholder {
+  opacity: 0.3;
+}
+
+.register__rememberMe {
+  display: flex;
+  align-items: center;
+}
+
+.register__rememberMe span {
+  margin-left: 5px;
+  font-size: 0.85rem;
+}
+
+.register__formFooter {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1rem 0;
+}
+
+.register__formFooter button {
+  background-color: var(--green);
+  border: none;
+  padding: 0.6rem 1.3rem;
+  color: white;
+  border-radius: 7px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.register__boxFooter {
+  border-top: 1px solid lightgray;
+  font-size: 0.8rem;
+  text-align: center;
+  padding-top: 1rem;
+}
+
+.register__boxFooter a {
+  color: var(--green);
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 5px;
+}
