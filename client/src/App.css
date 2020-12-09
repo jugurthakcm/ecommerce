@@ -52,6 +52,7 @@ button:focus {
   margin-top: 2rem;
 }
 
+/* 
 .app__carousel .carousel {
   border-radius: 1rem;
 }
@@ -59,6 +60,15 @@ button:focus {
 .app__carousel img {
   width: 100%;
   object-fit: contain;
+} */
+
+.app__carousel .carousel {
+  border-radius: 1rem;
+}
+
+.app__carousel img {
+  height: 450px;
+  object-fit: cover;
 }
 
 .dot {
