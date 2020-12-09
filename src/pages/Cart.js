@@ -1,10 +1,8 @@
 import React from 'react';
 import CartItem from '../components/CartItem';
 import { useCartContext } from '../data/CartProvider';
-import { Link } from 'react-router-dom';
 import './Cart.css';
 import { formatPrice } from '../util';
-import ArrowBackRoundedIcon from '@material-ui/icons/ArrowBackRounded';
 import Navbar from '../components/Navbar';
 
 const Cart = () => {
