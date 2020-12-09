@@ -9,7 +9,6 @@ import food from './assets/images/Food.jpg';
 import parfume from './assets/images/Parfume.jpg';
 import TrendingItems from './components/TrendingItems';
 import Footer from './components/Footer';
-import BestSelling from './components/BestSelling';
 import ItemsContainer from './components/ItemsContainer';
 
 function App() {
@@ -42,11 +41,6 @@ function App() {
         <div className="app__trendingItems">
           <h2 className="app__subTitle">Trending Products</h2>
           <TrendingItems />
-        </div>
-
-        <div className="app__bestSellingItems">
-          <h2 className="app__subTitle">Best Selling</h2>
-          <BestSelling />
         </div>
 
         <div className="app__items">

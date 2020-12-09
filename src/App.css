@@ -16,6 +16,11 @@ body {
   background-color: rgb(252, 252, 252);
 }
 
+input:focus,
+button:focus {
+  outline: none;
+}
+
 .app__container {
   padding: 0 4rem;
 }
