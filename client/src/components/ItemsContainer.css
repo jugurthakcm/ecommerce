@@ -50,21 +50,21 @@
 }
 
 .items__loadMore {
-  background-color: var(--green);
+  background-color: var(--blue);
   padding: 10px 2rem;
   border: none;
   border-radius: 0.6rem;
   color: white;
   font-weight: 600;
   margin: 10px auto;
-  border: 2px solid var(--green);
+  border: 2px solid var(--blue);
   cursor: pointer;
   font-size: 1rem;
 }
 
 .items__loadMore:hover,
 .items__loadMore:active {
-  color: var(--green);
+  color: var(--blue);
   background-color: white;
 }
 

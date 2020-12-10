@@ -46,7 +46,7 @@
 
 .item__title a:hover,
 .item__title a:active {
-  color: var(--green);
+  color: var(--blue);
 }
 
 .item__buy {
@@ -65,7 +65,7 @@
 .item__buyBtn {
   font-family: 'Montserrat', sans-serif;
   background-color: rgba(1, 198, 146, 0.1);
-  color: var(--green);
+  color: var(--blue);
   box-shadow: none;
   border: none;
   border-radius: 1rem;
@@ -76,7 +76,7 @@
 
 .item__buyBtn:hover,
 .item__buyBtn:active {
-  background-color: var(--green);
+  background-color: var(--blue);
   color: white;
 }
 

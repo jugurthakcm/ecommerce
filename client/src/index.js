@@ -7,8 +7,7 @@ import { initialCart, cartReducer } from './data/cartReducer';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Product from './pages/Product';
 import Cart from './pages/Cart';
-import Login from './pages/Login';
-import Register from './pages/Register';
+import Auth from './pages/Auth';
 
 ReactDOM.render(
   <BrowserRouter>
@@ -19,8 +18,7 @@ ReactDOM.render(
         </Route>
         <Route path="/:category/:product_id" component={Product} />
         <Route path="/cart" component={Cart} />
-        <Route path="/login" component={Login} />
-        <Route path="/register" component={Register} />
+        <Route path="/auth" component={Auth} />
       </Switch>
     </CartProvider>
   </BrowserRouter>,

@@ -25,8 +25,8 @@
 }
 
 .cart__contentCheckout button {
-  background-color: var(--green);
-  border: 2px solid var(--green);
+  background-color: var(--blue);
+  border: 2px solid var(--blue);
   color: white;
   font-weight: 500;
   padding-top: 1rem;
@@ -40,7 +40,7 @@
 .cart__contentCheckout button:hover,
 .cart__contentCheckout button:active {
   background-color: white;
-  color: var(--green);
+  color: var(--blue);
 }
 
 .cart__empty {

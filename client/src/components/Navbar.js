@@ -28,7 +28,7 @@ const Navbar = () => {
             <input placeholder="Search ..." />
           </span>
           <span className="navbar__rightAccount">
-            <Link to="/login" className="navbar__authIcon">
+            <Link to="/auth" className="navbar__authIcon">
               <AccountCircleOutlinedIcon fontSize="large" />
             </Link>
           </span>
