@@ -1,8 +1,12 @@
-.login {
-  background-color: var(--green);
+.login__container {
   width: 100vw;
+  min-height: 100vh;
+  background-color: var(--green);
+}
+
+.login {
   z-index: -1;
-  padding: 3rem 0;
+  padding-top: 3rem;
 }
 
 .login__box {

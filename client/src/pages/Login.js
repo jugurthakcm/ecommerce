@@ -8,7 +8,7 @@ import LockRoundedIcon from '@material-ui/icons/LockRounded';
 
 const Login = () => {
   return (
-    <div>
+    <div className="login__container">
       <Navbar />
       <div className="login">
         <div className="login__box">
@@ -38,7 +38,6 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
