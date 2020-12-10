@@ -17,7 +17,11 @@ const Register = () => {
           <form className="register__form">
             <div className="login__formInput input-name">
               <PersonRoundedIcon fontSize="small" />
-              <input type="text" placeholder="Full Name" />
+              <input type="text" placeholder="First Name" />
+            </div>
+            <div className="login__formInput input-name">
+              <PersonRoundedIcon fontSize="small" />
+              <input type="text" placeholder="Last Name" />
             </div>
             <div className="register__formInput input-email">
               <EmailRoundedIcon fontSize="small" />
