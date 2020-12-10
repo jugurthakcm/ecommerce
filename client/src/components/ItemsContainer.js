@@ -3,41 +3,50 @@ import './ItemsContainer.css';
 import { filterCategories } from '../util';
 import { ItemsData } from '../data/itemsData';
 import Item from './Item';
+import Skeleton from '@material-ui/lab/Skeleton';
 
 const ItemsContainer = () => {
   const itemsAPI = ItemsData();
-  const categories = itemsAPI ? filterCategories(itemsAPI) : null;
+
+  const categories = itemsAPI ? filterCategories(itemsAPI) : [];
+
   const [categoryItems, setCategoryItems] = useState('men clothing');
-  const filtredItems =
-    itemsAPI &&
-    itemsAPI
-      .filter((item) => item.category === categoryItems)
-      .map((item) => <Item item={item} key={item.id} />);
+
+  const skeltons = Array(9).fill(
+    <Skeleton
+      variant="rect"
+      height={350}
+      animation="wave"
+      className="item__skeleton"
+    />
+  );
+
+  const filtredItems = itemsAPI
+    ? itemsAPI
+        .filter((item) => item.category === categoryItems)
+        .map((item) => <Item item={item} key={item.id} />)
+    : skeltons;
+
   const categoriesRef = useRef();
 
   const handleChangeCategory = (e) => {
-    console.log(e.target.textContent);
     setCategoryItems(e.target.textContent);
   };
-
-  // window.onscroll = () => {
-  //   if (window.scrollY > categoriesRef.current.offsetTop) {
-  //     categoriesRef.current.style.position = 'sticky';
-  //     categoriesRef.current.style.top = '40px';
-  //   }
-  // };
 
   return (
     <div className="itemsContainer">
       <div className="items__categories" ref={categoriesRef}>
         <h4>Categories</h4>
         <ul>
-          {categories &&
-            categories.map((category) => (
-              <li key={category} onClick={handleChangeCategory}>
-                {category}
-              </li>
-            ))}
+          {categories.length
+            ? categories.map((category) => (
+                <li key={category} onClick={handleChangeCategory}>
+                  {category}
+                </li>
+              ))
+            : Array(3)
+                .fill(<Skeleton width={150} />)
+                .map((skeleton) => <li>{skeleton}</li>)}
         </ul>
       </div>
       <div className="items__perCategory">
