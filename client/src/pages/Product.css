@@ -89,7 +89,7 @@
 
 .product__infoButton:hover,
 .product__infoButton:active {
-  background-color: #029e75;
+  background-color: rgb(0, 86, 216);
 }
 
 .Btn-disabled {
