@@ -35,7 +35,9 @@ exports.register = async (req, res) => {
           .status(200)
           .send(`${data.firstName} ${data.lastName} is registred successfully`)
       )
-      .catch((error) => res.status(400).json({ error }));
+      .catch((error) => {
+        throw error;
+      });
   } catch (error) {
     res.status(400).json({ error });
   }
@@ -61,7 +63,30 @@ exports.login = async (req, res) => {
     if (!comparePassword) throw 'password wrong';
 
     const token = jwt.sign({ _id: userDB._id }, process.env.JWT_KEY);
-    res.status(200).json({ token: token });
+    User.updateOne({ _id: userDB._id, token })
+      .then(() => res.status(200).json({ token: token }))
+      .catch((err) => {
+        throw err;
+      });
+  } catch (error) {
+    res.status(400).json({ error });
+  }
+};
+
+exports.logout = async (req, res) => {
+  try {
+    const token = req.headers.authorization;
+    const user = await User.findOne({ token });
+    if (!user) throw "You can't logout if you aren't signed in";
+
+    User.updateOne({ _id: user._id, token: '' }).then(() =>
+      res
+        .status(200)
+        .send('Logout successfully')
+        .catch((err) => {
+          throw err;
+        })
+    );
   } catch (error) {
     res.status(400).json({ error });
   }
