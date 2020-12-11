@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: minmax(auto, 650px) auto;
   grid-gap: 2.5rem;
-  padding: 0 4rem;
+  padding: 2rem 4rem;
 }
 
 .product .carousel .slide {
@@ -65,7 +65,7 @@
 }
 
 .product__infoStock {
-  color: var(--green);
+  color: var(--blue);
   font-weight: 500;
   font-size: 0.8rem;
 }
@@ -77,7 +77,7 @@
 .product__infoButton {
   color: white;
   font-weight: 600;
-  background-color: var(--green);
+  background-color: var(--blue);
   border: none;
   border-radius: 1rem;
   padding: 0.6rem 0;
@@ -89,7 +89,7 @@
 
 .product__infoButton:hover,
 .product__infoButton:active {
-  background-color: #029e75;
+  background-color: rgb(0, 86, 216);
 }
 
 .Btn-disabled {
@@ -105,7 +105,7 @@
 
 @media (max-width: 992px) {
   .product {
-    padding: 0 2rem;
+    padding: 1rem 2rem;
   }
 }
 
@@ -132,6 +132,6 @@
 
 @media (max-width: 576px) {
   .product {
-    padding: 0 1rem;
+    padding: 0.5rem 1rem;
   }
 }

@@ -1,40 +1,23 @@
 {
-  "name": "shopping-notif",
-  "version": "0.1.0",
+  "name": "ecommerce",
+  "version": "1.0.0",
+  "description": "Ecommerce plateform",
+  "main": "index.js",
+  "repository": "https://github.com/jugurthakcm/ecommerce.git",
+  "author": "Jugurtha <kjugurtha1711@gmail.com>",
+  "license": "MIT",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^4.11.0",
-    "@material-ui/icons": "^4.9.1",
-    "@material-ui/lab": "^4.0.0-alpha.56",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "react": "^16.13.1",
-    "react-alice-carousel": "^2.0.2",
-    "react-dom": "^16.13.1",
-    "react-responsive-carousel": "^3.2.10",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3"
+    "bcrypt": "^5.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "joi": "^17.3.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.5"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "dev": "concurrently \"nodemon index.js\" \"cd client && yarn start\"",
+    "serve": "nodemon index.js"
   }
 }

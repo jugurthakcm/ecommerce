@@ -11,10 +11,16 @@ const Navbar = () => {
   const items = useCartContext()[0];
 
   const searchBar = useRef();
+
   const handleShowSearchBar = () => {
     if (window.innerWidth <= 610) {
       searchBar.current.classList.toggle('showSearchBar');
     }
+  };
+
+  const handleShowAuth = () => {
+    document.querySelector('.auth').classList.remove('d-none');
+    document.querySelector('.auth').classList.add('d-block');
   };
   return (
     <nav className="navbar">
@@ -28,9 +34,10 @@ const Navbar = () => {
             <input placeholder="Search ..." />
           </span>
           <span className="navbar__rightAccount">
-            <Link to="/login" className="navbar__authIcon">
-              <AccountCircleOutlinedIcon fontSize="large" />
-            </Link>
+            <AccountCircleOutlinedIcon
+              fontSize="large"
+              onClick={handleShowAuth}
+            />
           </span>
           <Link to="/cart" className="navbar__ShoppingIcon">
             <Badge badgeContent={items.length} color="secondary">
