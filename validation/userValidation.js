@@ -15,3 +15,15 @@ exports.registerValidation = ({ firstName, lastName, email, password }) => {
     password,
   });
 };
+
+exports.loginValidation = ({ email, password }) => {
+  const schema = Joi.object({
+    email: Joi.string().email().required().trim().max(50),
+    password: Joi.string().required().trim().min(8).max(50),
+  });
+
+  return schema.validate({
+    email,
+    password,
+  });
+};

@@ -1,6 +1,11 @@
+require('dotenv').config();
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const { User } = require('../models/User');
-const { registerValidation } = require('../validation/userValidation');
+const {
+  registerValidation,
+  loginValidation,
+} = require('../validation/userValidation');
 
 exports.register = async (req, res) => {
   try {
@@ -10,7 +15,7 @@ exports.register = async (req, res) => {
 
     const user = value;
 
-    //Verify if email doesn't exist
+    //Verify if user exists
     const userExists = await User.findOne({ email: user.email });
     if (userExists) throw 'Email already exists';
 
@@ -31,6 +36,32 @@ exports.register = async (req, res) => {
           .send(`${data.firstName} ${data.lastName} is registred successfully`)
       )
       .catch((error) => res.status(400).json({ error }));
+  } catch (error) {
+    res.status(400).json({ error });
+  }
+};
+
+exports.login = async (req, res) => {
+  try {
+    //Validation
+    const { error, value } = loginValidation(req.body);
+    if (error) throw error.details[0].message;
+
+    const user = value;
+
+    //Verify is user exists
+    const userDB = await User.findOne({ email: user.email });
+    if (!userDB) throw "Email doesn't exist";
+
+    //Decrypt password
+    const comparePassword = await bcrypt.compare(
+      user.password,
+      userDB.password
+    );
+    if (!comparePassword) throw 'password wrong';
+
+    const token = jwt.sign({ _id: userDB._id }, process.env.JWT_KEY);
+    res.status(200).json({ token: token });
   } catch (error) {
     res.status(400).json({ error });
   }
