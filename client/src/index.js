@@ -8,19 +8,31 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Product from './pages/Product';
 import Cart from './pages/Cart';
 import './index.css';
+import { Provider } from 'react-redux';
+import { applyMiddleware, createStore, compose } from 'redux';
+import rootReducer from './data/reducers/rootReducer';
+import thunk from 'redux-thunk';
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(thunk))
+);
 
 ReactDOM.render(
-  <BrowserRouter>
-    <CartProvider initialCart={initialCart} cartReducer={cartReducer}>
-      <Switch>
-        <Route exact path="/">
-          <App />
-        </Route>
-        <Route path="/:category/:product_id" component={Product} />
-        <Route path="/cart" component={Cart} />
-      </Switch>
-    </CartProvider>
-  </BrowserRouter>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <CartProvider initialCart={initialCart} cartReducer={cartReducer}>
+        <Switch>
+          <Route exact path="/">
+            <App />
+          </Route>
+          <Route path="/:category/:product_id" component={Product} />
+          <Route path="/cart" component={Cart} />
+        </Switch>
+      </CartProvider>
+    </BrowserRouter>
+  </Provider>,
   document.getElementById('root')
 );
 
