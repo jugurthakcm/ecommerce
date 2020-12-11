@@ -10,7 +10,7 @@ const itemSchema = mongoose.Schema({
     required: true,
   },
   image: {
-    type: Image,
+    type: URL,
     required: true,
   },
   price: {
@@ -19,6 +19,10 @@ const itemSchema = mongoose.Schema({
   },
   inStock: {
     type: Number,
+    required: true,
+  },
+  category: {
+    type: String,
     required: true,
   },
 });
