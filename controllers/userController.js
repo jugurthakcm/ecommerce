@@ -66,18 +66,14 @@ exports.login = async (req, res) => {
 
     res.header('x-access-token', token);
 
-    User.findById({ _id: userDB._id })
-      .then((user) =>
-        res.status(200).json({
-          name: `${user.firstName} ${user.lastName}`,
-          token,
-        })
-      )
+    User.findById(userDB._id)
+      .select('-password -__v')
+      .then((user) => res.status(200).send(user))
       .catch((err) => {
         throw err;
       });
   } catch (error) {
-    res.status(400).json({ error });
+    res.status(400).send(error);
   }
 };
 

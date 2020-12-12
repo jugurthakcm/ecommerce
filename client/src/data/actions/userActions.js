@@ -13,7 +13,25 @@ export const loginUser = ({ email, password }) => (dispatch) => {
     .catch((err) => {
       return dispatch({
         type: userActionTypes.ERROR_LOGIN,
-        payload: err.response.data.error,
+        payload: err,
+      });
+    });
+};
+
+export const loadUser = (token) => (dispatch) => {
+  axios
+    .get('/user', {
+      headers: {
+        'x-access-token': token,
+      },
+    })
+    .then((res) => {
+      return dispatch({ type: userActionTypes.LOAD_USER, payload: res });
+    })
+    .catch((err) => {
+      return dispatch({
+        type: userActionTypes.ERROR_LOAD_USER,
+        payload: err,
       });
     });
 };

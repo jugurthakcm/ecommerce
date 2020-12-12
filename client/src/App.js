@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import './App.css';
 import Navbar from './components/Navbar';
@@ -13,7 +13,8 @@ import ItemsContainer from './components/ItemsContainer';
 import CloseRoundedIcon from '@material-ui/icons/CloseRounded';
 import Login from './components/Login';
 import Register from './components/Register';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { loadUser } from './data/actions/userActions';
 
 function App() {
   //Closing the auth form component
@@ -22,6 +23,12 @@ function App() {
     document.querySelector('.auth').classList.add('d-none');
     document.querySelector('.auth').classList.remove('d-block');
   };
+
+  const dispatch = useDispatch();
+  const token = localStorage.getItem('token');
+  useEffect(() => {
+    token && dispatch(loadUser(token));
+  }, [dispatch]);
 
   return (
     <div className="app">
