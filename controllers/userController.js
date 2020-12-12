@@ -64,11 +64,13 @@ exports.login = async (req, res) => {
 
     const token = jwt.sign({ _id: userDB._id }, process.env.JWT_KEY);
 
-    User.findByIdAndUpdate({ _id: userDB._id, token })
+    res.header('x-access-token', token);
+
+    User.findById({ _id: userDB._id })
       .then((user) =>
         res.status(200).json({
           name: `${user.firstName} ${user.lastName}`,
-          token: user.token,
+          token,
         })
       )
       .catch((err) => {
@@ -81,16 +83,18 @@ exports.login = async (req, res) => {
 
 exports.logout = async (req, res) => {
   try {
-    const token = req.headers.authorization;
-    const user = await User.findOne({ token });
-    if (!user) throw "You can't logout if you aren't signed in";
+    const token = req.headers['x-access-token'];
+    if (!token) throw "You can't logout if you aren't signed in";
 
-    User.updateOne({ _id: user._id, token: '' })
-      .then(() => res.status(200).send('Logout successfully'))
-      .catch((err) => {
-        throw err;
-      });
+    res.header('x-access-token', null);
   } catch (error) {
     res.status(400).json({ error });
   }
+};
+
+exports.loadUser = (req, res) => {
+  User.findById(req.user._id)
+    .select('-password -__v')
+    .then((user) => res.status(200).send(user))
+    .catch((error) => res.status(400).json({ error }));
 };
