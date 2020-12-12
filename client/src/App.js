@@ -16,7 +16,8 @@ import Register from './components/Register';
 import { useSelector } from 'react-redux';
 
 function App() {
-  const auth = useSelector((state) => state.auth);
+  //Closing the auth form component
+  const auth = useSelector((state) => state.authForm);
   const handleCloseAuth = () => {
     document.querySelector('.auth').classList.add('d-none');
     document.querySelector('.auth').classList.remove('d-block');

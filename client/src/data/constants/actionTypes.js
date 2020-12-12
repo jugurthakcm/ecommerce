@@ -1,6 +1,15 @@
-export const userActionTypes = {};
+export const userActionTypes = {
+  LOAD_USER: 'LOAD_USER',
+  LOGIN: 'LOGIN',
+  REGISTER: 'REGISTER',
+  LOGOUT: 'LOGOUT',
+  ERROR_LOAD_USER: 'ERROR_LOAD_USER',
+  ERROR_LOGIN: 'ERROR_LOGIN',
+  ERROR_REGISTER: 'ERROR_REGISTER',
+  ERROR_LOGOUT: 'ERROR_LOGOUT',
+};
 
-export const authActionTypes = {
+export const authFormActionTypes = {
   SHOW_LOGIN_FORM: 'SHOW_LOGIN_FORM',
   SHOW_REGISTER_FORM: ' SHOW_REGISTER_FORM',
 };

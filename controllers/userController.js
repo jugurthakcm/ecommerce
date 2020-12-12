@@ -60,11 +60,17 @@ exports.login = async (req, res) => {
       user.password,
       userDB.password
     );
-    if (!comparePassword) throw 'password wrong';
+    if (!comparePassword) throw 'Wrong password';
 
     const token = jwt.sign({ _id: userDB._id }, process.env.JWT_KEY);
-    User.updateOne({ _id: userDB._id, token })
-      .then(() => res.status(200).json({ token: token }))
+
+    User.findByIdAndUpdate({ _id: userDB._id, token })
+      .then((user) =>
+        res.status(200).json({
+          name: `${user.firstName} ${user.lastName}`,
+          token: user.token,
+        })
+      )
       .catch((err) => {
         throw err;
       });
@@ -79,14 +85,11 @@ exports.logout = async (req, res) => {
     const user = await User.findOne({ token });
     if (!user) throw "You can't logout if you aren't signed in";
 
-    User.updateOne({ _id: user._id, token: '' }).then(() =>
-      res
-        .status(200)
-        .send('Logout successfully')
-        .catch((err) => {
-          throw err;
-        })
-    );
+    User.updateOne({ _id: user._id, token: '' })
+      .then(() => res.status(200).send('Logout successfully'))
+      .catch((err) => {
+        throw err;
+      });
   } catch (error) {
     res.status(400).json({ error });
   }

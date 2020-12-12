@@ -2,7 +2,7 @@ import React from 'react';
 import EmailRoundedIcon from '@material-ui/icons/EmailRounded';
 import LockRoundedIcon from '@material-ui/icons/LockRounded';
 import PersonRoundedIcon from '@material-ui/icons/PersonRounded';
-import { showLoginForm } from '../data/actions/authActions';
+import { showLoginForm } from '../data/actions/authFormActions';
 import { useDispatch } from 'react-redux';
 
 const Register = () => {

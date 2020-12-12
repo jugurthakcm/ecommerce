@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import Badge from '@material-ui/core/Badge';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
@@ -6,22 +6,39 @@ import { Link } from 'react-router-dom';
 import './Navbar.css';
 import { useCartContext } from '../data/CartProvider';
 import SearchIcon from '@material-ui/icons/Search';
+import Popover from '@material-ui/core/Popover';
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
+  //Getting the items from the api
   const items = useCartContext()[0];
 
+  //Showing SearchBar on response
   const searchBar = useRef();
-
   const handleShowSearchBar = () => {
     if (window.innerWidth <= 610) {
       searchBar.current.classList.toggle('showSearchBar');
     }
   };
 
-  const handleShowAuth = () => {
+  //Getting the user state
+  const { user, token } = useSelector((state) => state.user);
+
+  //Showing the component on click on account icon
+  const [anchorEl, setAnchorEl] = useState(null);
+  const handleClick = (event) => {
+    // if (token || user) setAnchorEl(event.currentTarget);
+    // else {
     document.querySelector('.auth').classList.remove('d-none');
     document.querySelector('.auth').classList.add('d-block');
+    // }
   };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
+
   return (
     <nav className="navbar">
       <div className="navbar__up">
@@ -34,10 +51,23 @@ const Navbar = () => {
             <input placeholder="Search ..." />
           </span>
           <span className="navbar__rightAccount">
-            <AccountCircleOutlinedIcon
-              fontSize="large"
-              onClick={handleShowAuth}
-            />
+            <AccountCircleOutlinedIcon fontSize="large" onClick={handleClick} />
+            <Popover
+              id={id}
+              open={open}
+              anchorEl={anchorEl}
+              onClose={handleClose}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'center',
+              }}
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'center',
+              }}
+            >
+              {token}
+            </Popover>
           </span>
           <Link to="/cart" className="navbar__ShoppingIcon">
             <Badge badgeContent={items.length} color="secondary">
