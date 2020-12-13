@@ -7,6 +7,7 @@ import './Navbar.css';
 import { useCartContext } from '../data/CartProvider';
 import SearchIcon from '@material-ui/icons/Search';
 import Popover from '@material-ui/core/Popover';
+import Button from '@material-ui/core/Button';
 import { useSelector } from 'react-redux';
 
 const Navbar = () => {
@@ -22,16 +23,16 @@ const Navbar = () => {
   };
 
   //Getting the user state
-  const { user, token } = useSelector((state) => state.user);
+  const { user } = useSelector((state) => state.user);
 
   //Showing the component on click on account icon
   const [anchorEl, setAnchorEl] = useState(null);
   const handleClick = (event) => {
-    // if (token || user) setAnchorEl(event.currentTarget);
-    // else {
-    document.querySelector('.auth').classList.remove('d-none');
-    document.querySelector('.auth').classList.add('d-block');
-    // }
+    if (user) setAnchorEl(event.currentTarget);
+    else {
+      document.querySelector('.auth').classList.remove('d-none');
+      document.querySelector('.auth').classList.add('d-block');
+    }
   };
   const handleClose = () => {
     setAnchorEl(null);
@@ -59,14 +60,18 @@ const Navbar = () => {
               onClose={handleClose}
               anchorOrigin={{
                 vertical: 'bottom',
-                horizontal: 'center',
+                horizontal: 'right',
               }}
               transformOrigin={{
                 vertical: 'top',
-                horizontal: 'center',
+                horizontal: 'right',
               }}
+              className="navbar__popover"
             >
-              {token}
+              <span>{user && `${user.firstName} ${user.lastName}`}</span>
+              <Button variant="contained" color="secondary">
+                Logout
+              </Button>
             </Popover>
           </span>
           <Link to="/cart" className="navbar__ShoppingIcon">

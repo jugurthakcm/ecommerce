@@ -28,7 +28,7 @@ function App() {
   const token = localStorage.getItem('token');
   useEffect(() => {
     token && dispatch(loadUser(token));
-  }, [dispatch]);
+  }, [dispatch, token]);
 
   return (
     <div className="app">

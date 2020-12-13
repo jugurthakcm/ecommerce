@@ -114,6 +114,15 @@
   display: block;
 }
 
+.navbar__popover .MuiPopover-paper {
+  display: flex;
+  flex-direction: column;
+  height: 60px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem;
+}
+
 /* Media Query */
 @media (min-width: 610px) {
   .showSearchBar {
