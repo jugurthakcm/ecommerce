@@ -11,7 +11,7 @@ exports.auth = (req, res, next) => {
     req.user = userId;
     next();
   } catch (error) {
-    res.status(400).json({ error });
+    res.status(400).send(error);
     next();
   }
 };

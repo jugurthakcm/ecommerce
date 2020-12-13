@@ -17,6 +17,9 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(loginUser(credentials));
+    setCredentials({ email: '', password: '' });
+    document.querySelector('.auth').classList.add('d-none');
+    document.querySelector('.auth').classList.remove('d-block');
   };
 
   return (

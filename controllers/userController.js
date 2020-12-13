@@ -77,20 +77,9 @@ exports.login = async (req, res) => {
   }
 };
 
-exports.logout = async (req, res) => {
-  try {
-    const token = req.headers['x-access-token'];
-    if (!token) throw "You can't logout if you aren't signed in";
-
-    res.header('x-access-token', null);
-  } catch (error) {
-    res.status(400).json({ error });
-  }
-};
-
 exports.loadUser = (req, res) => {
   User.findById(req.user._id)
     .select('-password -__v')
     .then((user) => res.status(200).send(user))
-    .catch((error) => res.status(400).json({ error }));
+    .catch((error) => res.status(400).send(error));
 };

@@ -35,3 +35,7 @@ export const loadUser = (token) => (dispatch) => {
       });
     });
 };
+
+export const logout = () => {
+  return { type: userActionTypes.LOGOUT };
+};

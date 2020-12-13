@@ -8,9 +8,12 @@ import { useCartContext } from '../data/CartProvider';
 import SearchIcon from '@material-ui/icons/Search';
 import Popover from '@material-ui/core/Popover';
 import Button from '@material-ui/core/Button';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { logout } from '../data/actions/userActions';
 
 const Navbar = () => {
+  const dispatch = useDispatch();
+
   //Getting the items from the api
   const items = useCartContext()[0];
 
@@ -40,6 +43,12 @@ const Navbar = () => {
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
 
+  //Logout
+  const handleLogout = () => {
+    dispatch(logout());
+    setAnchorEl(null);
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar__up">
@@ -53,26 +62,32 @@ const Navbar = () => {
           </span>
           <span className="navbar__rightAccount">
             <AccountCircleOutlinedIcon fontSize="large" onClick={handleClick} />
-            <Popover
-              id={id}
-              open={open}
-              anchorEl={anchorEl}
-              onClose={handleClose}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'right',
-              }}
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              className="navbar__popover"
-            >
-              <span>{user && `${user.firstName} ${user.lastName}`}</span>
-              <Button variant="contained" color="secondary">
-                Logout
-              </Button>
-            </Popover>
+            {user && (
+              <Popover
+                id={id}
+                open={open}
+                anchorEl={anchorEl}
+                onClose={handleClose}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'right',
+                }}
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                className="navbar__popover"
+              >
+                <span>{`${user.firstName} ${user.lastName}`}</span>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  onClick={handleLogout}
+                >
+                  Logout
+                </Button>
+              </Popover>
+            )}
           </span>
           <Link to="/cart" className="navbar__ShoppingIcon">
             <Badge badgeContent={items.length} color="secondary">
