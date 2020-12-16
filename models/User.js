@@ -22,9 +22,9 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  token: {
-    type: String,
-    default: '',
+  createdAt: {
+    type: Date,
+    default: new Date(),
   },
 });
 
