@@ -8,6 +8,18 @@ const initialState = {
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
+    //REGISTER
+    case userActionTypes.REGISTER:
+      return { ...state, user: action.payload.data };
+
+    //REGISTER_FAIL
+    case userActionTypes.ERROR_REGISTER:
+      return {
+        ...state,
+        user: null,
+        error: action.payload.response.data,
+      };
+
     //LOGIN
     case userActionTypes.LOGIN:
       localStorage.setItem('token', action.payload.data.token);
@@ -22,7 +34,7 @@ const userReducer = (state = initialState, action) => {
       localStorage.removeItem('token');
       return {
         ...state,
-        error: action.payload.response,
+        error: action.payload.response.data,
       };
 
     //LOAD USER
@@ -31,7 +43,11 @@ const userReducer = (state = initialState, action) => {
 
     //LOAD USER FAIL
     case userActionTypes.ERROR_LOAD_USER:
-      return { ...state, user: null, error: action.payload.response };
+      return {
+        ...state,
+        user: null,
+        error: action.payload.response.data.error,
+      };
 
     //LOGOUT
     case userActionTypes.LOGOUT:

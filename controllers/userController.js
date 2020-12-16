@@ -31,15 +31,18 @@ exports.register = async (req, res) => {
       password: hash,
     })
       .then((data) =>
-        res
-          .status(200)
-          .send(`${data.firstName} ${data.lastName} is registred successfully`)
+        res.status(200).json({
+          firstName: data.firstName,
+          lastName: data.lastName,
+          email: data.email,
+          _id: data._id,
+        })
       )
       .catch((error) => {
         throw error;
       });
   } catch (error) {
-    res.status(400).json({ error });
+    res.status(400).send(error);
   }
 };
 

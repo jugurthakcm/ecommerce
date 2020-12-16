@@ -1,6 +1,27 @@
 import axios from '../../axios';
 import { userActionTypes } from '../constants/actionTypes';
 
+export const registerUSer = ({ firstName, lastName, email, password }) => (
+  dispatch
+) => {
+  axios
+    .post('/register', {
+      firstName,
+      lastName,
+      email,
+      password,
+    })
+    .then((res) => {
+      return dispatch({ type: userActionTypes.REGISTER, payload: res });
+    })
+    .catch((err) => {
+      return dispatch({
+        type: userActionTypes.ERROR_REGISTER,
+        payload: err,
+      });
+    });
+};
+
 export const loginUser = ({ email, password }) => (dispatch) => {
   axios
     .post('/login', {
