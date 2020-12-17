@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { ItemsData } from '../data/itemsData';
 import Item from './Item';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';

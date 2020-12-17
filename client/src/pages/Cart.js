@@ -19,7 +19,7 @@ const Cart = () => {
       <div className="cart__content">
         <div className="cart__contentItems">
           {items.length ? (
-            items.map((item) => <CartItem item={item} />)
+            items.map((item) => <CartItem item={item} key={item.id} />)
           ) : (
             <p className="cart__empty">Your cart is empty</p>
           )}

@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './ItemsContainer.css';
 import { filterCategories } from '../util';
-import { ItemsData } from '../data/itemsData';
 import Item from './Item';
 import Skeleton from '@material-ui/lab/Skeleton';
 import { useDispatch, useSelector } from 'react-redux';
