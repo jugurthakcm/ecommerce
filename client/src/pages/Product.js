@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useCartContext } from '../data/CartProvider';
 import { cartActions } from '../data/cartReducer';
 import './Product.css';
@@ -11,15 +11,20 @@ import { Carousel } from 'react-responsive-carousel';
 import { formatPrice } from '../util';
 import Footer from '../components/Footer';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import { useDispatch, useSelector } from 'react-redux';
+import { getOneItem } from '../data/actions/itemActions';
 
 const Product = (props) => {
   const productId = props.match.params.product_id;
-  const items = ItemsData();
-  const item = items ? items.find((e) => e.id == productId) : null; // eslint-disable-line
-  const dispatch = useCartContext()[1];
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getOneItem(productId));
+  }, [dispatch, productId]);
+
+  const item = useSelector((state) => state.item.oneItem);
   const [itemQuantity, setItemQuantity] = useState();
   const addItem = useRef();
-  const inStock = 40;
 
   const handleClick = () => {
     const itemSelected = {
@@ -28,18 +33,14 @@ const Product = (props) => {
       price: item.price,
       image: item.image,
       description: item.description,
-      inStock,
+      inStock: item.inStock,
       id: item.id,
       category: item.category,
     };
-    dispatch({
-      item: itemSelected,
-      type: cartActions.ADD_ITEM,
-    });
   };
 
   const handleChange = (e) => {
-    if (e.target.value > 0 && e.target.value <= inStock) {
+    if (e.target.value > 0 && e.target.value <= item.inStock) {
       addItem.current.classList.remove('Btn-disabled');
       addItem.current.disabled = false;
       setItemQuantity(e.target.value);
@@ -80,7 +81,7 @@ const Product = (props) => {
               {formatPrice(item.price)}
             </p>
 
-            <p className="product__infoStock">Left in stock : {inStock}</p>
+            <p className="product__infoStock">Left in stock : {item.inStock}</p>
             <div className="product__infoQuantity">
               <TextField
                 id="standard-number"
@@ -90,7 +91,7 @@ const Product = (props) => {
                 value={itemQuantity}
                 InputProps={{
                   inputProps: {
-                    max: inStock,
+                    max: item.inStock,
                     min: 0,
                   },
                 }}

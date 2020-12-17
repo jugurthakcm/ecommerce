@@ -3,6 +3,7 @@ import { itemActionTypes } from '../constants/actionTypes';
 const initialState = {
   items: [],
   trendingItems: [],
+  oneItem: null,
 };
 
 const itemReducer = (state = initialState, action) => {
@@ -12,6 +13,9 @@ const itemReducer = (state = initialState, action) => {
 
     case itemActionTypes.TRENDING_ITEMS:
       return { ...state, trendingItems: action.payload };
+
+    case itemActionTypes.GET_ONE_ITEM:
+      return { ...state, oneItem: action.payload };
 
     default:
       return state;
