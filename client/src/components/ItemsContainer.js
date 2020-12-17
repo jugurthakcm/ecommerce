@@ -1,17 +1,30 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './ItemsContainer.css';
 import { filterCategories } from '../util';
 import { ItemsData } from '../data/itemsData';
 import Item from './Item';
 import Skeleton from '@material-ui/lab/Skeleton';
+import { useDispatch, useSelector } from 'react-redux';
+import { getItems } from '../data/actions/itemActions';
 
 const ItemsContainer = () => {
-  const itemsAPI = ItemsData();
+  const dispatch = useDispatch();
 
-  const categories = itemsAPI ? filterCategories(itemsAPI) : [];
+  //Getting the items from the api
+  useEffect(() => {
+    dispatch(getItems());
+  }, [dispatch]);
 
-  const [categoryItems, setCategoryItems] = useState('men clothing');
+  //Getting items from the reducer
+  const items = useSelector((state) => state.item.items);
 
+  //Getting an array of the categories
+  const categories = items ? filterCategories(items) : [];
+
+  //Category state
+  const [categoryItems, setCategoryItems] = useState('men_clothing');
+
+  //Lazy loading with skeletons
   const skeltons = Array(9).fill(
     <Skeleton
       variant="rect"
@@ -21,8 +34,9 @@ const ItemsContainer = () => {
     />
   );
 
-  const filtredItems = itemsAPI
-    ? itemsAPI
+  //Render the items to the Item component
+  const filtredItems = items
+    ? items
         .filter((item) => item.category === categoryItems)
         .map((item) => <Item item={item} key={item.id} />)
     : skeltons;
@@ -30,7 +44,7 @@ const ItemsContainer = () => {
   const categoriesRef = useRef();
 
   const handleChangeCategory = (e) => {
-    setCategoryItems(e.target.textContent);
+    setCategoryItems(e.target.id);
   };
 
   return (
@@ -40,8 +54,8 @@ const ItemsContainer = () => {
         <ul>
           {categories.length
             ? categories.map((category) => (
-                <li key={category} onClick={handleChangeCategory}>
-                  {category}
+                <li key={category} id={category} onClick={handleChangeCategory}>
+                  {category.split('_').join(' ')}
                 </li>
               ))
             : Array(3)

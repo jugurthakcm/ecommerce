@@ -13,3 +13,10 @@ export const authFormActionTypes = {
   SHOW_LOGIN_FORM: 'SHOW_LOGIN_FORM',
   SHOW_REGISTER_FORM: ' SHOW_REGISTER_FORM',
 };
+
+export const itemActionTypes = {
+  GET_ITEMS: 'GET_ITEMS',
+  TRENDING_ITEMS: 'TRENDING_ITEMS',
+  GET_ONE_ITEM: 'GET_ONE_ITEM',
+  CATEGORY_ITEMS: 'CATEGORY_ITEMS',
+};
