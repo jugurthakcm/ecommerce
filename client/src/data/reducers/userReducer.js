@@ -10,7 +10,7 @@ const userReducer = (state = initialState, action) => {
   switch (action.type) {
     //REGISTER
     case userActionTypes.REGISTER:
-      return { ...state, user: action.payload.data };
+      return state;
 
     //REGISTER_FAIL
     case userActionTypes.ERROR_REGISTER:

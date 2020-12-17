@@ -10,7 +10,7 @@ const itemSchema = mongoose.Schema({
     required: true,
   },
   image: {
-    type: URL,
+    type: String,
     required: true,
   },
   price: {
@@ -24,6 +24,10 @@ const itemSchema = mongoose.Schema({
   category: {
     type: String,
     required: true,
+  },
+  trending: {
+    type: Boolean,
+    default: false,
   },
 });
 
