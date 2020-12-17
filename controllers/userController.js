@@ -31,13 +31,18 @@ exports.register = async (req, res) => {
       password: hash,
     })
       .then((data) =>
-        res
-          .status(200)
-          .send(`${data.firstName} ${data.lastName} is registred successfully`)
+        res.status(200).json({
+          firstName: data.firstName,
+          lastName: data.lastName,
+          email: data.email,
+          _id: data._id,
+        })
       )
-      .catch((error) => res.status(400).json({ error }));
+      .catch((error) => {
+        throw error;
+      });
   } catch (error) {
-    res.status(400).json({ error });
+    res.status(400).send(error);
   }
 };
 
@@ -58,11 +63,26 @@ exports.login = async (req, res) => {
       user.password,
       userDB.password
     );
-    if (!comparePassword) throw 'password wrong';
+    if (!comparePassword) throw 'Wrong password';
 
     const token = jwt.sign({ _id: userDB._id }, process.env.JWT_KEY);
-    res.status(200).json({ token: token });
+
+    res.header('x-access-token', token);
+
+    User.findById(userDB._id)
+      .select('-password -__v')
+      .then((user) => res.status(200).send(user))
+      .catch((err) => {
+        throw err;
+      });
   } catch (error) {
-    res.status(400).json({ error });
+    res.status(400).send(error);
   }
+};
+
+exports.loadUser = (req, res) => {
+  User.findById(req.user._id)
+    .select('-password -__v')
+    .then((user) => res.status(200).send(user))
+    .catch((error) => res.status(400).send(error));
 };

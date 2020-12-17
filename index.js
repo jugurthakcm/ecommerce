@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const userRoutes = require('./routes/userRoutes');
+const itemsRoutes = require('./routes/itemsRoutes');
 
 const app = express();
 
@@ -11,6 +12,7 @@ const PORT = process.env.PORT || 5001;
 app.use(express.json());
 app.use(cors());
 app.use('/api', userRoutes);
+app.use('/api/items', itemsRoutes);
 
 mongoose
   .connect('mongodb://localhost:27017/ecommerce', {
@@ -19,6 +21,7 @@ mongoose
   })
   .then(() => {
     console.log('Connected to the database');
-    app.listen(PORT, () => console.log(`Connected to ${PORT}`));
   })
   .catch((err) => console.log(err));
+
+app.listen(PORT, () => console.log(`Connected to ${PORT}`));
