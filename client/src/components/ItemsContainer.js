@@ -38,7 +38,7 @@ const ItemsContainer = () => {
   const filtredItems = items
     ? items
         .filter((item) => item.category === categoryItems)
-        .map((item) => <Item item={item} key={item.id} />)
+        .map((item) => <Item item={item} key={item._id} />)
     : skeltons;
 
   const categoriesRef = useRef();
