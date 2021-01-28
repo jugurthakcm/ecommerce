@@ -16,11 +16,13 @@ import { getOneItem } from '../data/actions/itemActions';
 
 const Product = (props) => {
   const productId = props.match.params.product_id;
-  const dispatch = useDispatch();
+  const dispatche = useDispatch();
+
+  const dispatch = useCartContext()[1];
 
   useEffect(() => {
-    dispatch(getOneItem(productId));
-  }, [dispatch, productId]);
+    dispatche(getOneItem(productId));
+  }, [dispatche, productId]);
 
   const item = useSelector((state) => state.item.oneItem);
   const [itemQuantity, setItemQuantity] = useState();
@@ -34,9 +36,13 @@ const Product = (props) => {
       image: item.image,
       description: item.description,
       inStock: item.inStock,
-      id: item.id,
+      id: item._id,
       category: item.category,
     };
+    dispatch({
+      item: itemSelected,
+      type: cartActions.ADD_ITEM,
+    });
   };
 
   const handleChange = (e) => {
