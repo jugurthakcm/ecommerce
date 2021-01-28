@@ -5,6 +5,7 @@ import Item from './Item';
 import Skeleton from '@material-ui/lab/Skeleton';
 import { useDispatch, useSelector } from 'react-redux';
 import { getItems } from '../data/actions/itemActions';
+import uuid from 'uuid';
 
 const ItemsContainer = () => {
   const dispatch = useDispatch();
@@ -59,7 +60,7 @@ const ItemsContainer = () => {
               ))
             : Array(3)
                 .fill(<Skeleton width={150} />)
-                .map((skeleton) => <li>{skeleton}</li>)}
+                .map((skeleton) => <li key={uuid()}>{skeleton}</li>)}
         </ul>
       </div>
       <div className="items__perCategory">

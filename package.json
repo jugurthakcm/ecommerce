@@ -15,7 +15,8 @@
     "joi": "^17.3.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.5",
-    "random-boolean": "^1.0.0"
+    "random-boolean": "^1.0.0",
+    "uuid": "^8.3.2"
   },
   "scripts": {
     "dev": "concurrently \"nodemon index.js\" \"cd client && yarn start\"",
