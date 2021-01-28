@@ -26,8 +26,6 @@ function Item({ item }) {
     });
   };
 
-  const categoryLink = item.category.split(' ').join('_');
-
   return (
     <div className="item">
       <div className="item__img">
