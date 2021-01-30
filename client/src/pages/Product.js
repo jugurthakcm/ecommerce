@@ -11,6 +11,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import { useDispatch, useSelector } from 'react-redux';
 import { getOneItem } from '../data/actions/itemActions';
 import { addItem } from '../data/actions/cartActions';
+import Authentification from '../components/Authentification';
 
 const Product = (props) => {
   const productId = props.match.params.product_id;
@@ -50,9 +51,13 @@ const Product = (props) => {
     }
   };
   window.scrollTo(0, 0);
+
   return (
     <>
       <Navbar />
+      {/* Authentification */}
+      <Authentification />
+
       {item ? (
         <div className="product">
           <div className="product__image">

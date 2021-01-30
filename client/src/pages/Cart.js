@@ -4,6 +4,7 @@ import './Cart.css';
 import { formatPrice } from '../util';
 import Navbar from '../components/Navbar';
 import { useSelector } from 'react-redux';
+import Authentification from '../components/Authentification';
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart);
@@ -13,6 +14,7 @@ const Cart = () => {
     .reduce((sum, i) => sum + i, 0);
   return (
     <div className="cart">
+      <Authentification />
       <div className="cart__header">
         <Navbar />
       </div>

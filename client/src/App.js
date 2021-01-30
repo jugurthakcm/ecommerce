@@ -10,20 +10,11 @@ import parfume from './assets/images/Parfume.jpg';
 import TrendingItems from './components/TrendingItems';
 import Footer from './components/Footer';
 import ItemsContainer from './components/ItemsContainer';
-import CloseRoundedIcon from '@material-ui/icons/CloseRounded';
-import Login from './components/Login';
-import Register from './components/Register';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { loadUser } from './data/actions/userActions';
+import Authentification from './components/Authentification';
 
 function App() {
-  //Closing the auth form component
-  const auth = useSelector((state) => state.authForm);
-  const handleCloseAuth = () => {
-    document.querySelector('.auth').classList.add('d-none');
-    document.querySelector('.auth').classList.remove('d-block');
-  };
-
   const dispatch = useDispatch();
   const token = localStorage.getItem('token');
   useEffect(() => {
@@ -87,15 +78,7 @@ function App() {
       </div>
 
       {/* Authentification */}
-      <div className="auth d-none">
-        <div className="auth__container">
-          <span className="auth__closeIcon">
-            <CloseRoundedIcon onClick={handleCloseAuth} />
-          </span>
-
-          {auth === 'login' ? <Login /> : <Register />}
-        </div>
-      </div>
+      <Authentification />
 
       <Footer />
     </div>
