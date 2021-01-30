@@ -10,6 +10,7 @@ import Footer from '../components/Footer';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { useDispatch, useSelector } from 'react-redux';
 import { getOneItem } from '../data/actions/itemActions';
+import { addItem } from '../data/actions/cartActions';
 
 const Product = (props) => {
   const productId = props.match.params.product_id;
@@ -21,7 +22,7 @@ const Product = (props) => {
 
   const item = useSelector((state) => state.item.oneItem);
   const [itemQuantity, setItemQuantity] = useState();
-  const addItem = useRef();
+  const addItemRef = useRef();
 
   const handleClick = () => {
     const itemSelected = {
@@ -39,12 +40,12 @@ const Product = (props) => {
 
   const handleChange = (e) => {
     if (e.target.value > 0 && e.target.value <= item.inStock) {
-      addItem.current.classList.remove('Btn-disabled');
-      addItem.current.disabled = false;
+      addItemRef.current.classList.remove('Btn-disabled');
+      addItemRef.current.disabled = false;
       setItemQuantity(e.target.value);
     } else {
-      addItem.current.classList.add('Btn-disabled');
-      addItem.current.disabled = true;
+      addItemRef.current.classList.add('Btn-disabled');
+      addItemRef.current.disabled = true;
       setItemQuantity('');
     }
   };
@@ -99,7 +100,7 @@ const Product = (props) => {
             <button
               className="product__infoButton Btn-disabled"
               onClick={handleClick}
-              ref={addItem}
+              ref={addItemRef}
             >
               Add to Cart <ShoppingCartOutlinedIcon />
             </button>
