@@ -1,23 +1,23 @@
 import React from 'react';
 import './CartItem.css';
 import { formatPrice } from '../util';
-import { useCartContext } from '../data/CartProvider';
-import { cartActions } from '../data/cartReducer';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { Link } from 'react-router-dom';
+import { changeQuantity, deleteItem } from '../data/actions/cartActions';
+import { useDispatch } from 'react-redux';
 
 const CartItem = ({ item }) => {
-  const dispatch = useCartContext()[1];
+  const dispatch = useDispatch();
 
   const handleDeleteItem = () => {
-    dispatch({ type: cartActions.DELETE_ITEM, deletedItem: item.id });
+    dispatch(deleteItem(item.id));
   };
 
   const handleChangeQty = (e) => {
     const quantity = e.target.value;
-    dispatch({ type: cartActions.CHANGE_QTY, item: { quantity, id: item.id } });
+    dispatch(changeQuantity({ quantity, id: item.id }));
   };
 
   let arrayQty = [];

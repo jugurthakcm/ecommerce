@@ -1,14 +1,14 @@
 import React from 'react';
 import CartItem from '../components/CartItem';
-import { useCartContext } from '../data/CartProvider';
 import './Cart.css';
 import { formatPrice } from '../util';
 import Navbar from '../components/Navbar';
+import { useSelector } from 'react-redux';
 
 const Cart = () => {
-  const items = useCartContext()[0];
+  const cartItems = useSelector((state) => state.cart);
 
-  const total = items
+  const total = cartItems
     .map((item) => item.price * item.quantity)
     .reduce((sum, i) => sum + i, 0);
   return (
@@ -18,8 +18,8 @@ const Cart = () => {
       </div>
       <div className="cart__content">
         <div className="cart__contentItems">
-          {items.length ? (
-            items.map((item) => <CartItem item={item} key={item.id} />)
+          {cartItems.length ? (
+            cartItems.map((item) => <CartItem item={item} key={item.id} />)
           ) : (
             <p className="cart__empty">Your cart is empty</p>
           )}

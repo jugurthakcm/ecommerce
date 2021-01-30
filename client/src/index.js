@@ -2,8 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { CartProvider } from './data/CartProvider';
-import { initialCart, cartReducer } from './data/cartReducer';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Product from './pages/Product';
 import Cart from './pages/Cart';
@@ -22,15 +20,13 @@ const store = createStore(
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-      <CartProvider initialCart={initialCart} cartReducer={cartReducer}>
-        <Switch>
-          <Route exact path="/">
-            <App />
-          </Route>
-          <Route path="/:category/:product_id" component={Product} />
-          <Route path="/cart" component={Cart} />
-        </Switch>
-      </CartProvider>
+      <Switch>
+        <Route exact path="/">
+          <App />
+        </Route>
+        <Route path="/:category/:product_id" component={Product} />
+        <Route path="/cart" component={Cart} />
+      </Switch>
     </BrowserRouter>
   </Provider>,
   document.getElementById('root')

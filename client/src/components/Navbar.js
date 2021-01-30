@@ -4,7 +4,6 @@ import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
-import { useCartContext } from '../data/CartProvider';
 import SearchIcon from '@material-ui/icons/Search';
 import Popover from '@material-ui/core/Popover';
 import Button from '@material-ui/core/Button';
@@ -15,7 +14,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
 
   //Getting the items from the api
-  const items = useCartContext()[0];
+  const cartItems = useSelector((state) => state.cart);
 
   //Showing SearchBar on response
   const searchBar = useRef();
@@ -90,7 +89,7 @@ const Navbar = () => {
             )}
           </span>
           <Link to="/cart" className="navbar__ShoppingIcon">
-            <Badge badgeContent={items.length} color="secondary">
+            <Badge badgeContent={cartItems.length} color="secondary">
               <ShoppingCartOutlinedIcon
                 variant="contained"
                 className="navbar__ShoppingIcon"

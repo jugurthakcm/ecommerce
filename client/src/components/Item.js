@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useCartContext } from '../data/CartProvider';
-import { cartActions } from '../data/cartReducer';
 import { formatPrice } from '../util';
 import './Item.css';
+import { useDispatch } from 'react-redux';
+import { addItem } from '../data/actions/cartActions';
 
 function Item({ item }) {
-  const dispatch = useCartContext()[1];
+  const dispatch = useDispatch();
   const inStock = 40;
 
   const handleClick = () => {
@@ -17,13 +17,10 @@ function Item({ item }) {
       image: item.image,
       description: item.description,
       inStock: inStock,
-      id: item.id,
+      id: item._id,
       category: item.category,
     };
-    dispatch({
-      item: itemSelected,
-      type: cartActions.ADD_ITEM,
-    });
+    dispatch(addItem(itemSelected));
   };
 
   return (

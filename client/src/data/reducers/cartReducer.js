@@ -30,38 +30,38 @@ export const cartActions = {
   CHANGE_QTY: 'CHANGE_QTY',
 };
 
-export const cartReducer = (state = initialCart, action) => {
+const cartReducer = (state = initialCart, action) => {
   switch (action.type) {
     case cartActions.ADD_ITEM:
       let index = null;
       for (const el of state) {
-        if (el.id === action.item.id) {
+        if (el.id === action.payload.id) {
           index = state.indexOf(el);
         }
       }
 
       if (index !== null) {
         const el = state[index];
-        const totalQty = el.quantity + action.item.quantity;
-        const { inStock } = action.item;
+        const totalQty = el.quantity + action.payload.quantity;
+        const { inStock } = action.payload;
         Object.assign(el, {
           quantity:
             totalQty <= inStock
-              ? el.quantity + action.item.quantity
+              ? el.quantity + action.payload.quantity
               : el.quantity,
         });
         return [...state];
       } else {
-        return [...state, action.item];
+        return [...state, action.payload];
       }
 
     case cartActions.DELETE_ITEM:
-      return state.filter((e) => e.id !== action.deletedItem);
+      return state.filter((e) => e.id !== action.payload);
 
     case cartActions.CHANGE_QTY:
       return state.map((e) =>
-        e.id === action.item.id
-          ? Object.assign(e, { quantity: action.item.quantity })
+        e.id === action.payload.id
+          ? Object.assign(e, { quantity: action.payload.quantity })
           : e
       );
 
@@ -69,3 +69,5 @@ export const cartReducer = (state = initialCart, action) => {
       return state;
   }
 };
+
+export default cartReducer;

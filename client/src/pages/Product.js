@@ -1,11 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useCartContext } from '../data/CartProvider';
-import { cartActions } from '../data/cartReducer';
 import './Product.css';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import Navbar from '../components/Navbar';
 import TextField from '@material-ui/core/TextField';
-import { ItemsData } from '../data/itemsData';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 import { formatPrice } from '../util';
@@ -16,13 +13,11 @@ import { getOneItem } from '../data/actions/itemActions';
 
 const Product = (props) => {
   const productId = props.match.params.product_id;
-  const dispatche = useDispatch();
-
-  const dispatch = useCartContext()[1];
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatche(getOneItem(productId));
-  }, [dispatche, productId]);
+    dispatch(getOneItem(productId));
+  }, [dispatch, productId]);
 
   const item = useSelector((state) => state.item.oneItem);
   const [itemQuantity, setItemQuantity] = useState();
@@ -39,10 +34,7 @@ const Product = (props) => {
       id: item._id,
       category: item.category,
     };
-    dispatch({
-      item: itemSelected,
-      type: cartActions.ADD_ITEM,
-    });
+    dispatch(addItem(itemSelected));
   };
 
   const handleChange = (e) => {
