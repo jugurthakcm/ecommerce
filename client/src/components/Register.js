@@ -23,7 +23,7 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(registerUSer(credentials));
-    setCredentials({ fistName: '', lastName: '', email: '', password: '' });
+    setCredentials({ firstName: '', lastName: '', email: '', password: '' });
     document.querySelector('.auth').classList.add('d-none');
     document.querySelector('.auth').classList.remove('d-block');
   };

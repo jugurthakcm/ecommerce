@@ -26,18 +26,16 @@ function Item({ item }) {
     });
   };
 
-  const categoryLink = item.category.split(' ').join('_');
-
   return (
     <div className="item">
       <div className="item__img">
-        <Link to={`${categoryLink}/${item.id}`}>
+        <Link to={`/items/${item._id}`}>
           <img src={item.image} alt={item.title} />
         </Link>
       </div>
 
       <div className="item__title">
-        <Link to={`/${categoryLink}/${item.id}`}>{item.title}</Link>
+        <Link to={`/items/${item._id}`}>{item.title}</Link>
       </div>
       <div className="item__buy">
         <p className="item__price">$ {formatPrice(item.price)}</p>

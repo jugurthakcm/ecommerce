@@ -18,3 +18,12 @@ export const trendingItems = () => (dispatch) => {
     )
     .catch((err) => console.log(err));
 };
+
+export const getOneItem = (id) => (dispatch) => {
+  axios
+    .get(`/items/${id}`)
+    .then((res) =>
+      dispatch({ type: itemActionTypes.GET_ONE_ITEM, payload: res.data })
+    )
+    .catch((err) => console.log(err));
+};
